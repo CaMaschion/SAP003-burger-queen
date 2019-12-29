@@ -7,6 +7,7 @@ import MenuList from '../components/Menu/menu.js'
 //import Nav from '../components/Nav/Nav';
 
 import '../styles.css';
+//import AddOrder from '../components/Order/index.js';
 
 const Restaurant = () => {
 
@@ -14,6 +15,8 @@ const Restaurant = () => {
     const [client, setClient] = useState('')
     const [table, setTable] = useState('')
     const [filterMenu, setFilterMenu] = useState([])
+    const [products, setProducts] = useState([])
+
 
     function onSubmit(e) {
         e.preventDefault()
@@ -53,6 +56,18 @@ const Restaurant = () => {
         }
     }
 
+    const addProducts = (item) => {
+        setProducts([...products, item]);
+
+    }
+
+    const removeItem = (item) => {
+        const index = (products.indexOf(item))
+        products.splice(index, 1)
+        setProducts([...products])
+    }
+
+
 
     return (
         <div className="App">
@@ -65,10 +80,21 @@ const Restaurant = () => {
                 <Input title="Numero da mesa: " type="number" val={table} handleChange={e => setTable(e.currentTarget.value)} />
                 <Button id='btn-send' handleClick={onSubmit} text="Enviar Pedido" />
             </form>
+            <div>
+                <h2>Menu</h2>
+                <MenuList menuItens={filterMenu} handleClick={addProducts} />
+            </div>
             <aside>
                 <div>
-                    <h2>Menu</h2>
-                    <MenuList menuItens={filterMenu} />
+                    <ul>
+                        {products.map((products, index) => (
+                            <li key={index}>{products.name} R$ {products.price},00
+                            <Button text={'Remover Item'} handleClick={(e) => {
+                                e.preventDefault();
+                                removeItem(products);
+                            }} /></li>
+                        ))}
+                    </ul>
                 </div>
             </aside>
 

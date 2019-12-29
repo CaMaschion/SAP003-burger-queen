@@ -21,8 +21,8 @@ export default function App () {
           <Nav/>
         <div>          
           <Switch>
-            <Route path="/salao" component={Restaurant}/>           
-            <Route path="/cozinha" component={Kitchen}/>                    
+            <Route path="/restaurant" component={Restaurant}/>           
+            <Route path="/kitchen" component={Kitchen}/>                    
           </Switch>
         </div>
       </Router>

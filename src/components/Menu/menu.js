@@ -5,16 +5,16 @@ const MenuList = (props) => {
 
     return (
 
-        <ol>
+        <section>
             {props.menuItens.map((menu) =>
-                <button key="{menu.id}" onClick={props.handleClick}>
+                <button key="{menu.id}" onClick={() => props.handleClick(menu)}>
                     <div className="burger">
                         {menu.name}
                         <h3 className="price">R${menu.price},00</h3>
                     </div>
                 </button>
             )}
-        </ol>
+        </section>
 
     )
 }
