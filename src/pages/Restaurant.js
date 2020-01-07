@@ -7,7 +7,7 @@ import MenuList from '../components/Menu/menu.js'
 //import Nav from '../components/Nav/Nav';
 
 import '../styles.css';
-//import AddOrder from '../components/Order/index.js';
+import AddOrder from '../components/Order/index.js';
 
 const Restaurant = () => {
 
@@ -16,24 +16,27 @@ const Restaurant = () => {
     const [table, setTable] = useState('')
     const [filterMenu, setFilterMenu] = useState([])
     const [products, setProducts] = useState([])
-
+    
 
     function onSubmit(e) {
         e.preventDefault()
-
+        
         firebase
             .firestore()
-            .collection('client')
+            .collection('orders')         
             .add({
                 client,
-                table,
+                table, 
+                products,        
+               
             })
             .then(() => {
                 setClient('')
                 setTable('')
+                setProducts([])
+                
             })
     }
-
 
     useEffect(() => {
         firebase.firestore()
@@ -43,7 +46,6 @@ const Restaurant = () => {
                     setMenu((currentState) => [...currentState, doc.data()]);
                 })
             })
-
     }, [])
 
     function showFilteredMenu(type) {
@@ -58,7 +60,7 @@ const Restaurant = () => {
 
     const addProducts = (item) => {
         setProducts([...products, item]);
-
+        
     }
 
     const removeItem = (item) => {
@@ -66,8 +68,9 @@ const Restaurant = () => {
         products.splice(index, 1)
         setProducts([...products])
     }
-
-
+   
+    const total = products.reduce((accum, products) => accum + products.price, 0)
+       
 
     return (
         <div className="App">
@@ -78,7 +81,7 @@ const Restaurant = () => {
                 <h4>Dados do cliente</h4>
                 <Input title="Nome: " type="text" val={client} handleChange={e => setClient(e.currentTarget.value)} />
                 <Input title="Numero da mesa: " type="number" val={table} handleChange={e => setTable(e.currentTarget.value)} />
-                <Button id='btn-send' handleClick={onSubmit} text="Enviar Pedido" />
+                
             </form>
             <div>
                 <h2>Menu</h2>
@@ -87,17 +90,21 @@ const Restaurant = () => {
             <aside>
                 <div>
                     <ul>
+                    <h1>Resumo do Pedido</h1>
                         {products.map((products, index) => (
-                            <li key={index}>{products.name} R$ {products.price},00
+                            <li key={index}>{products.name} R$ {products.price},00                            
                             <Button text={'Remover Item'} handleClick={(e) => {
                                 e.preventDefault();
                                 removeItem(products);
                             }} /></li>
-                        ))}
+                            ))}
+                            
+                            <p><strong>Total: {total}</strong></p>  
+                            <Button id='btn-send' handleClick={onSubmit} text="Enviar Pedido" />
+                                              
                     </ul>
                 </div>
             </aside>
-
         </div>
     )
 }
