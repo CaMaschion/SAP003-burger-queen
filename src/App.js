@@ -5,6 +5,7 @@ import React from 'react';
 // import MenuList from './components/Menu/menu.js'
 // import firebase from './utils/firebase.js'
 import Nav from './components/Nav/Nav';
+//import styled from 'styled-components'
 
 import {
     BrowserRouter as Router,
@@ -18,6 +19,7 @@ import Kitchen from "./pages/Kitchen";
 export default function App () {
     return (
       <Router>
+        
           <Nav/>
         <div>          
           <Switch>
