@@ -1,23 +1,14 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 
-
-const Nav = () => {
+const Nav = (props) => {
 
   return (
+    <>
 
-    <nav>
-      <ul>
-        <li>
-          <Link to="/restaurant">Salão</Link>
-        </li>
-        <li>
-          <Link to="/kitchen">Cozinha</Link>
-        </li>
-      </ul>
-    </nav>
-
+      <nav id="main-nav">{props.text}</nav>
+    </>
   )
 }
 
 export default Nav;
+

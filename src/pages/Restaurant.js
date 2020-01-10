@@ -1,13 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import firebase from '../utils/firebase.js'
-//import Header from '../components/Header';
 import Input from '../components/Input/Input';
 import Button from '../components/Button/';
 import MenuList from '../components/Menu/menu.js'
-//import Nav from '../components/Nav/Nav';
-//import Options from '../components/Options/Options'
-import '../styles.css';
-//import AddOrder from '../components/Order/index.js';
+import Nav from '../components/Nav/Nav';
+import { NavStyled } from '../Styles/styles'
+
 
 const Restaurant = () => {
 
@@ -17,7 +15,7 @@ const Restaurant = () => {
     const [filterMenu, setFilterMenu] = useState([])
     const [products, setProducts] = useState([])
     const [total, setTotal] = useState('')
-    
+
 
 
     function onSubmit(e) {
@@ -67,7 +65,7 @@ const Restaurant = () => {
         setProducts([...products, menuItem]);
 
     }
- 
+
 
     const removeItem = (item) => {
         const index = (products.indexOf(item))
@@ -79,7 +77,7 @@ const Restaurant = () => {
     const [modal, setModal] = useState({ status: false })
     const [options, setOptions] = useState(" ")
     const [extras, setExtras] = useState(" ")
-        
+
 
 
     const verifyOptions = (menu) => {
@@ -96,14 +94,16 @@ const Restaurant = () => {
         setModal({ status: false })
     }
 
- 
-
 
     return (
         <div className="App">
-            {/* <Header /> */}
+            
+            <NavStyled>
+                <Nav text={'Burger Queen'} />
+            </NavStyled>
             <Button text={'Café da Manhã'} handleClick={() => showFilteredMenu('breakfast')} />
             <Button text={'Lanches'} handleClick={() => showFilteredMenu('lunch')} />
+
             <form onSubmit={onSubmit}>
                 <h4>Dados do cliente</h4>
                 <Input title="Nome: " type="text" val={client} handleChange={e => setClient(e.currentTarget.value)} />
@@ -111,32 +111,32 @@ const Restaurant = () => {
 
             </form>
             <div>
-                <h2>Menu</h2>                
-                    <MenuList menuItens={filterMenu} handleClick={verifyOptions} />                
+                <h2>Menu</h2>
+                <MenuList menuItens={filterMenu} handleClick={verifyOptions} />
             </div>
             <section>
-            {modal.status ? (
-                <div>
-                    <h3>Extras</h3>
-                    {modal.item.extra.map((elem => (
-                        <div key={modal}>
-                            <input onChange={() => setExtras(elem)} type="radio" name="extras" value={elem} />
-                            <label>{elem}</label>
-                        </div>
-                    )))}
-                    <h3>Opções</h3>
-                    {modal.item.options.map((elem => (
-                        <div key={modal}>
-                            <input onChange={() => setOptions(elem)} type="radio" name="options" vaulue={elem} />
-                            <label>{elem}</label>
-                        </div>
-                    )))}
+                {modal.status ? (
+                    <div>
+                        <h3>Extras</h3>
+                        {modal.item.extra.map((elem => (
+                            <div key={modal}>
+                                <input onChange={() => setExtras(elem)} type="radio" name="extras" value={elem} />
+                                <label>{elem}</label>
+                            </div>
+                        )))}
+                        <h3>Opções</h3>
+                        {modal.item.options.map((elem => (
+                            <div key={modal}>
+                                <input onChange={() => setOptions(elem)} type="radio" name="options" vaulue={elem} />
+                                <label>{elem}</label>
+                            </div>
+                        )))}
 
-                
-                <button onClick={addOptionsExtras}>Adicionar</button>
-                </div>
 
-            ) : false}
+                        <button onClick={addOptionsExtras}>Adicionar</button>
+                    </div>
+
+                ) : false}
             </section>
             <aside>
                 <div>
