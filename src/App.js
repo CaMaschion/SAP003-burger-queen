@@ -2,9 +2,9 @@ import React from 'react';
 import Restaurant from "./pages/Restaurant";
 
 
- function App() {
+function App() {
   return (
-    <>
+    <>      
       <Restaurant />
     </>
 

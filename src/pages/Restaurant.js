@@ -4,7 +4,8 @@ import Input from '../components/Input/Input';
 import Button from '../components/Button/';
 import MenuList from '../components/Menu/menu.js'
 import Nav from '../components/Nav/Nav';
-import { NavStyled } from '../Styles/styles'
+import { NavStyled, FormStyled } from '../Styles/styles'
+import { GlobalStyle } from '../Styles/styles'
 
 
 const Restaurant = () => {
@@ -97,66 +98,79 @@ const Restaurant = () => {
 
     return (
         <div className="App">
-            
+            <GlobalStyle />
             <NavStyled>
                 <Nav text={'Burger Queen'} />
             </NavStyled>
-            <Button text={'Café da Manhã'} handleClick={() => showFilteredMenu('breakfast')} />
-            <Button text={'Lanches'} handleClick={() => showFilteredMenu('lunch')} />
+            <div className="container" style={{ display: 'flex', justifyContent: 'space-between', marginLeft: '20px', marginRight: '20px' }}>
+                <FormStyled>
+                    <div className="formContainer">
+                        <form onSubmit={onSubmit}>
 
-            <form onSubmit={onSubmit}>
-                <h4>Dados do cliente</h4>
-                <Input title="Nome: " type="text" val={client} handleChange={e => setClient(e.currentTarget.value)} />
-                <Input title="Número da mesa: " type="number" val={table} handleChange={e => setTable(e.currentTarget.value)} />
+                            <h4>Dados do cliente</h4>
+                            <Input title="Nome: " type="text" val={client} handleChange={e => setClient(e.currentTarget.value)} />
+                            <Input title="Número da mesa: " type="number" val={table} handleChange={e => setTable(e.currentTarget.value)} />
 
-            </form>
-            <div>
-                <h2>Menu</h2>
-                <MenuList menuItens={filterMenu} handleClick={verifyOptions} />
-            </div>
-            <section>
-                {modal.status ? (
+                        </form>
+                    </div>
+                </FormStyled>
+                <div className="containerMenu">
+
                     <div>
-                        <h3>Extras</h3>
-                        {modal.item.extra.map((elem => (
-                            <div key={modal}>
-                                <input onChange={() => setExtras(elem)} type="radio" name="extras" value={elem} />
-                                <label>{elem}</label>
-                            </div>
-                        )))}
-                        <h3>Opções</h3>
-                        {modal.item.options.map((elem => (
-                            <div key={modal}>
-                                <input onChange={() => setOptions(elem)} type="radio" name="options" vaulue={elem} />
-                                <label>{elem}</label>
-                            </div>
-                        )))}
 
+                        <Button text={'Café da Manhã'} handleClick={() => showFilteredMenu('breakfast')} />
+                        <Button text={'Lanches'} handleClick={() => showFilteredMenu('lunch')} />
 
-                        <button onClick={addOptionsExtras}>Adicionar</button>
                     </div>
 
-                ) : false}
-            </section>
-            <aside>
-                <div>
-                    <ul>
-                        <h1>Resumo do Pedido</h1>
+                    <div>
 
-                        {products.map((products, index) => (
-                            <li key={index}>{products.name} R$ {products.price},00
-                            <Button text={'Remover Item'} handleClick={(e) => {
-                                    e.preventDefault();
-                                    removeItem(products);
-                                }} /></li>
-                        ))}
+                        <MenuList menuItens={filterMenu} handleClick={verifyOptions} id={'breakfast'} />
 
-                        <p><strong>Total: {totalPrice.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</strong></p>
-                        <Button id='btn-send' handleClick={onSubmit} text="Enviar Pedido" />
+                    </div>
+                    <section>
+                        {modal.status ? (
+                            <div>
+                                <h3>Extras</h3>
+                                {modal.item.extra.map((elem => (
+                                    <div key={modal}>
+                                        <input onChange={() => setExtras(elem)} type="radio" name="extras" value={elem} />
+                                        <label>{elem}</label>
+                                    </div>
+                                )))}
+                                <h3>Opções</h3>
+                                {modal.item.options.map((elem => (
+                                    <div key={modal}>
+                                        <input onChange={() => setOptions(elem)} type="radio" name="options" vaulue={elem} />
+                                        <label>{elem}</label>
+                                    </div>
+                                )))}
 
-                    </ul>
+
+                                <button onClick={addOptionsExtras}>Adicionar</button>
+                            </div>
+
+                        ) : false}
+                    </section>
                 </div>
-            </aside>
+                <aside>
+                    <div>
+                        <ul>
+                            <h1>Resumo do Pedido</h1>
+                            {products.map((products, index) => (
+                                <li key={index}>{products.name} R$ {products.price},00
+                            <Button text={'Remover Item'} handleClick={(e) => {
+                                        e.preventDefault();
+                                        removeItem(products);
+                                    }} /></li>
+                            ))}
+                            <p><strong>Total: {totalPrice.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</strong></p>
+                            <Button id='btn-send' handleClick={onSubmit} text="Enviar Pedido" />
+
+                        </ul>
+                    </div>
+                </aside>
+            </div>
         </div>
     )
 }
