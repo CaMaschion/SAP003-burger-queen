@@ -1,23 +1,18 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Logo from './logo.png'
 
-
-const Nav = () => {
+const Nav = (props) => {
 
   return (
+    <>
+      <div className="image">
+        <img width={"150px"} src={Logo} alt='logo burger queen'/>
+      </div>
+      <nav id="main-nav">{props.text}</nav>
 
-    <nav>
-      <ul>
-        <li>
-          <Link to="/restaurant">Salão</Link>
-        </li>
-        <li>
-          <Link to="/kitchen">Cozinha</Link>
-        </li>
-      </ul>
-    </nav>
-
+    </>
   )
 }
 
 export default Nav;
+
