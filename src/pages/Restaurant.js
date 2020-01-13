@@ -193,22 +193,19 @@ const Restaurant = () => {
                         <ul>
                             <h1 style={{ fontSize: '35px' }}>Resumo do Pedido</h1>
                             {products.map((products, index) => (
-                                <li style={{ fontSize: '35px', color: '#595E5A' }} key={index}>{products.name} R$ {products.price},00
+                                <ul style={{ fontSize: '35px', color: '#595E5A' }} 
+                                key={index}>{products.name} R$ {products.price},00
                             <Button text={'Remover Item'} handleClick={(e) => {
                                         e.preventDefault();
                                         removeItem(products);
-                                    }} /></li>
+                                    }} /></ul>
                             ))}
                             <p><strong style={{ fontSize: '35px' }}>Total: {totalPrice.toLocaleString('pt-BR',
                                 { style: 'currency', currency: 'BRL' })}</strong></p>
 
-
                             <Button id='btn-send'
                                 handleClick={onSubmit}
                                 text="Enviar Pedido" />
-
-
-
                         </ul>
                     </div>
                 </aside>
