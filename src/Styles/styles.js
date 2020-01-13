@@ -7,7 +7,7 @@ export const GlobalStyle = createGlobalStyle`
    background-color: rgb(255, 222, 89);
  }
 
- h1, h2, h3 {
+ h1, h2, h3, button {
   font-family: 'Alegreya Sans', sans-serif;
  }
  `
@@ -28,8 +28,7 @@ export const FormStyled = styled.div`
     display: flex;
     flex-direction: column;
     background-color: rgb(255, 222, 89);
-    min-height: 154px; 
-    max-height: 200px;
+    
 
 `
 

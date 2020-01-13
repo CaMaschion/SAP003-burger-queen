@@ -18,8 +18,7 @@
 [React](https://reactjs.org/), [Angular](https://angular.io/) e
 [Vue](https://vuejs.org/) são alguns dos _frameworks_ e _bibliotecas_ de
 JavaScript mais usados na área de desenvolvimento ao redor do mundo e existe uma
-razão para isso. No contexto do navegador, [_manter a interface sincronizada com
-o estado é difícil_](https://medium.com/dailyjs/the-deepest-reason-why-modern-javascript-frameworks-exist-933b86ebc445).
+razão para isso.
 
 Ao eleger um _framework_ ou _biblioteca_ para nossa interface, nos apoiamos em
 uma série de convenções e implementações _testadas_ e _documentadas_ para
@@ -282,12 +281,12 @@ O acordado abaixo deve acontecer para dizer que a história está terminada:
 
 #### HU 1: Anotar pedidos
 
-* [ ] Digitar o nome do cliente.
-* [ ] Filtrar _menu_ para _café da manhã_ e _almoço/jantar_.
-* [ ] Adicionar item ao pedido.
-* [ ] Excluir item do pedido.
-* [ ] Mostrar _resumo_ do pedido com todos os itens e o total.
-* [ ] Enviar para a cozinha (isso deve salvar o pedido).
+* [x] Digitar o nome do cliente.
+* [x] Filtrar _menu_ para _café da manhã_ e _almoço/jantar_.
+* [x] Adicionar item ao pedido.
+* [x] Excluir item do pedido.
+* [x] Mostrar _resumo_ do pedido com todos os itens e o total.
+* [x] Enviar para a cozinha (isso deve salvar o pedido).
 
 #### HU 2: Ver pedidos na cozinha
 
