@@ -8,7 +8,8 @@ const MenuList = (props) => {
                 {props.menuItens.map((menu) =>
                     <button key="{menu.id}" type='button'
                         style={{
-                            backgroundColor: ' black',
+                            
+                            backgroundColor: 'black',
                             color: 'white',
                             fontSize: '15pt',
                             cursor: 'pointer',

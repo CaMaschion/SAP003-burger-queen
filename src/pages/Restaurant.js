@@ -19,7 +19,7 @@ const Restaurant = () => {
     const [total, setTotal] = useState('')
     const [modal, setModal] = useState({ status: false })
     const [options, setOptions] = useState(" ")
-    const [extras, setExtras] = useState(" ")
+    const [extras, setExtras] = useState("")
 
     function onSubmit(e) {
         e.preventDefault()
@@ -66,7 +66,7 @@ const Restaurant = () => {
 
     const addProducts = (menuItem) => {
         setProducts([...products, menuItem]);
-
+        
     }
 
     const removeItem = (item) => {
@@ -75,7 +75,7 @@ const Restaurant = () => {
         setProducts([...products])
     }
 
-    const totalPrice = products.reduce((accum, products) => accum + products.price, 0)
+    const totalPrice = products.reduce((accum, products) =>  accum + products.price, 0)
 
 
     const verifyOptions = (menu) => {
@@ -87,11 +87,12 @@ const Restaurant = () => {
     }
 
     const addOptionsExtras = () => {
-        const updatedItem = { ...modal.item, name: `${modal.item.name} ${options} ${extras}` }
+        const updatedItem = { ...modal.item, name: `${modal.item.name} ${options} ${extras}`, price: modal.item.price + 1 }
         addProducts(updatedItem)
         setModal({ status: false })
     }
 
+    console.log(extras.length)
 
 
     return (
