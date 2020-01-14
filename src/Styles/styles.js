@@ -7,7 +7,7 @@ export const GlobalStyle = createGlobalStyle`
    background-color: rgb(255, 222, 89);
  }
 
- h1, h2, h3, button {
+ h2, h3, button {
   font-family: 'Alegreya Sans', sans-serif;
  }
  `

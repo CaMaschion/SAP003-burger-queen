@@ -8,6 +8,7 @@ const Button = (props) => {
                 onClick={props.handleClick}
                 type='button'
                 style={{
+                    
                     backgroundColor: '#FF3127',
                     color: 'white',
                     fontSize: '20pt',
