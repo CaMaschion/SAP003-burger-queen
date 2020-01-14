@@ -7,7 +7,6 @@
 * [2. Objetivos de aprendizagem](#3-objetivos-de-aprendizagem)
 * [3. Considerações gerais](#4-considerações-gerais)
 * [4. Critérios de aceitação mínimos do projeto](#5-critérios-de-aceitação-mínimos-do-projeto)
-* [5. Hacker Edition](#6-hacker-edition)
 
 ***
 
@@ -88,18 +87,10 @@ O aplicativo deve usar scripts `npm-scripts` e ter `start`, `build` e `deploy`, 
 
 ## 4. Critérios mínimos de aceitação do projeto
 
-### Definição do produto
-
-O [_Product Owner_](https://www.youtube.com/watch?v=7lhnYbmovb4) nos apresentou
-este _backlog_ que é o resultado do seu trabalho com o cliente até hoje.
-
-***
-
 #### [História de usuário 1] Cliente deve poder anotar o seu pedido
 
 Eu como cliente quero poder anotar o meu pedido saber o valor de cada 
 produto e poder enviar o pedido para a cozinha para ser preparado.
-
 
 
 ##### Critérios de aceitação
@@ -113,14 +104,6 @@ O que deve acontecer para satisfazer as necessidades do usuário?
 * Enviar o pedido para a cozinha (guardar em algum banco de dados).
 * Funcionar bem e se adequar a um _tablet_.
 
-##### Definição de pronto
-
-O acordado abaixo deve acontecer para dizer que a história está terminada:
-
-* Você fez _testes_ de usabilidade e incorporou o _feedback_ do usuário.
-* Você deu deploy de seu aplicativo.
-
-***
 
 #### [História de usuário 2] Chefe de cozinha deve ver os pedidos
 
@@ -132,12 +115,6 @@ Eu como chefe de cozinha quero ver os pedidos dos clientes em ordem, poder marca
 * Marcar os pedidos que foram preparados e estão prontos para serem servidos.
 * Ver o tempo que levou para preparar o pedido desde que chegou, até ser marcado como concluído.
 
-##### Definição de pronto
-
-* Você fez _testes_ de usabilidade e incorporou o _feedback_ do usuário.
-* Você deu deploy de seu aplicativo.
-
-***
 
 #### [História de usuário 3] Garçom/Garçonete deve ver os pedidos prontos para servir
 
@@ -148,21 +125,6 @@ Eu como garçom/garçonete quero ver os pedidos que estão prontos para entregá
 * Ver a lista de pedidos prontos para servir.
 * Marque os pedidos que foram entregues.
 
-##### Definição de pronto
-
-* Você fez _testes_ de usabilidade e incorporou o _feedback_ do usuário.
-* Você deu deploy de seu aplicativo.
-* Os dados devem ser mantidos intactos, mesmo depois que um pedido terminado. Tudo isso para poder ter estatísticas no futuro.
-
-***
-
-## 5. Hacker Edition 
-
-As seções chamadas Hacker Edition são opcionais. Se você terminou tudo e ainda sobrou tempo, faça essa parte. Assim você poderá aprofundar e exercitar mais sobre os objetivos de aprendizagem do projeto.
-
-* Siga as recomendações para PWAs (Progressive Web Apps), para criar uma aplicação offline. Para orientá-las sobre este tema,recomendamos que você use Lighthouse, que é uma ferramenta do Google que nos ajuda a garantir que nossos aplicativos web sigam "boas práticas".
-
-* Faça testes que cubram 100% de statements, functions, lines e branches.
 
 * Implemente a seguinte história de usuário: 
 
@@ -178,20 +140,13 @@ O que deve acontecer para satisfazer as necessidades do usuário?
 * Criar tipo de usuário (cozinha / salão).
 * Entrar na tela correta para cada usuário.
 
-##### Definição de pronto
-
-O acordado abaixo deve acontecer para dizer que a história está terminada:
-
-* Você fez testes de usabilidade e incorporou o feedback do usuário.
-* Você deu deploy de seu aplicativo.
-
 ***
  
 ## Checklist
 
 ### `README.md`
 
-* [ ] Documentação do processo de design.
+* [X] Documentação do processo de design.
 * [ ] Inclui informações para desenvolvedores (dependências, instalação, uso, testes...)
 
 #### HU
@@ -204,6 +159,8 @@ O acordado abaixo deve acontecer para dizer que a história está terminada:
 * [x] Excluir item do pedido.
 * [x] Mostrar _resumo_ do pedido com todos os itens e o total.
 * [x] Enviar para a cozinha (isso deve salvar o pedido).
+
+#### PRÓXIMAS VERSÕES:
 
 #### HU 2: Ver pedidos na cozinha
 
@@ -222,10 +179,6 @@ O acordado abaixo deve acontecer para dizer que a história está terminada:
 * [ ] Fácil utilização em telas sensíveis ao toque.
 * [x] Status atual do pedido sempre visível enquanto fazemos um pedido.
 
-### Hacker Edition
-
-* [ ] Segue as recomendações de PWAs.
-* [ ] Funciona bem offline.
 
 #### HU 4: Perfil do Usuário
 

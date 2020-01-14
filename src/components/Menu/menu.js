@@ -8,25 +8,27 @@ const MenuList = (props) => {
                 {props.menuItens.map((menu) =>
                     <button key="{menu.id}" type='button'
                         style={{
-                            
+
                             backgroundColor: 'black',
                             color: 'white',
+                            width: '150px',
+                            height: '150px',
                             fontSize: '15pt',
                             cursor: 'pointer',
                             padding: '10px',
-                            textAlign: 'center',
+                            textAlign: 'center',                            
                             margin: '20px',
                             border: 'none',
                             borderRadius: '10px',
-
+                                                                                              
                         }}
                         onClick={() => { props.handleClick(menu) }}>
                         <div className="allMenu">
-                            {menu.name}
-                            <h3 className="price">R${menu.price},00</h3>
-                        </div>
+                    {menu.name}
+                    <h3 className="price">R${menu.price},00</h3>
+                </div>
                     </button>
-                )}
+            )}
             </section>
         </>
     )
