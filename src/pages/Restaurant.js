@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import firebase from '../utils/firebase.js'
+import firebase from '../utils/firebase.js';
 import Input from '../components/Input/Input';
 import Button from '../components/Button/';
-import MenuList from '../components/Menu/menu.js'
+import ButtonRemove from '../components/ButtonRemove/ButtonRemove';
+import MenuList from '../components/Menu/menu.js';
 import Nav from '../components/Nav/Nav';
-import { NavStyled, FormStyled } from '../Styles/styles'
-import { GlobalStyle } from '../Styles/styles'
+import { NavStyled, FormStyled } from '../Styles/styles';
+import { GlobalStyle } from '../Styles/styles';
 
 
 const Restaurant = () => {
@@ -16,8 +17,9 @@ const Restaurant = () => {
     const [filterMenu, setFilterMenu] = useState([])
     const [products, setProducts] = useState([])
     const [total, setTotal] = useState('')
-
-
+    const [modal, setModal] = useState({ status: false })
+    const [options, setOptions] = useState(" ")
+    const [extras, setExtras] = useState("")
 
     function onSubmit(e) {
         e.preventDefault()
@@ -64,9 +66,8 @@ const Restaurant = () => {
 
     const addProducts = (menuItem) => {
         setProducts([...products, menuItem]);
-
+        
     }
-
 
     const removeItem = (item) => {
         const index = (products.indexOf(item))
@@ -74,11 +75,7 @@ const Restaurant = () => {
         setProducts([...products])
     }
 
-    const totalPrice = products.reduce((accum, products) => accum + products.price, 0)
-    const [modal, setModal] = useState({ status: false })
-    const [options, setOptions] = useState(" ")
-    const [extras, setExtras] = useState(" ")
-
+    const totalPrice = products.reduce((accum, products) =>  accum + products.price, 0)
 
 
     const verifyOptions = (menu) => {
@@ -90,10 +87,12 @@ const Restaurant = () => {
     }
 
     const addOptionsExtras = () => {
-        const updatedItem = { ...modal.item, name: `${modal.item.name} ${options} ${extras}` }
+        const updatedItem = { ...modal.item, name: `${modal.item.name} ${options} ${extras}`, price: modal.item.price + 1 }
         addProducts(updatedItem)
         setModal({ status: false })
     }
+
+    console.log(extras.length)
 
 
     return (
@@ -102,52 +101,91 @@ const Restaurant = () => {
             <NavStyled>
                 <Nav text={'Burger Queen'} />
             </NavStyled>
-            <div className="container" style={{ display: 'flex', justifyContent: 'space-between', marginLeft: '20px', marginRight: '20px' }}>
+            <div className="container"
+                style={{
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    marginLeft: '50px',
+                    marginRight: '100px'
+                }}>
                 <FormStyled>
                     <div className="formContainer">
                         <form onSubmit={onSubmit}>
 
                             <h4>Dados do cliente</h4>
-                            <Input title="Nome: " type="text" val={client} handleChange={e => setClient(e.currentTarget.value)} />
-                            <Input title="Número da mesa: " type="number" val={table} handleChange={e => setTable(e.currentTarget.value)} />
+                            <Input title="Nome: "
+                                type="text" val={client}
+                                handleChange={e => setClient(e.currentTarget.value)} />
+                            <Input title="Número da mesa: "
+                                type="number" val={table}
+                                handleChange={e => setTable(e.currentTarget.value)} />
 
                         </form>
                     </div>
                 </FormStyled>
-                <div className="containerMenu">
+                <div>
 
-                    <div>
+                    <div className='containerMenu' style={{ textAlign: 'center' }}>
 
-                        <Button text={'Café da Manhã'} handleClick={() => showFilteredMenu('breakfast')} />
-                        <Button text={'Lanches'} handleClick={() => showFilteredMenu('lunch')} />
+                        <Button text={'Café da Manhã'}
+                            handleClick={() => showFilteredMenu('breakfast')} />
+                        <Button text={'Lanches'}
+                            handleClick={() => showFilteredMenu('lunch')} />
 
                     </div>
 
                     <div>
 
-                        <MenuList menuItens={filterMenu} handleClick={verifyOptions} id={'breakfast'} />
+                        <MenuList menuItens={filterMenu}
+                            handleClick={verifyOptions} id={'breakfast'} />
 
                     </div>
                     <section>
                         {modal.status ? (
                             <div>
-                                <h3>Extras</h3>
+                                <h3 style={{ fontSize: '20pt' }}>Extras</h3>
                                 {modal.item.extra.map((elem => (
-                                    <div key={modal}>
-                                        <input onChange={() => setExtras(elem)} type="radio" name="extras" value={elem} />
+                                    <div style={{ fontSize: '20pt' }} key={modal}>
+                                        <input
+                                            onChange={() => setExtras(elem)}
+                                            type="radio"
+                                            name="extras"
+                                            value={elem} />
                                         <label>{elem}</label>
                                     </div>
                                 )))}
-                                <h3>Opções</h3>
+                                <h3 style={{ fontSize: '20pt' }}>Opções de Hambúrguer</h3>
                                 {modal.item.options.map((elem => (
-                                    <div key={modal}>
-                                        <input onChange={() => setOptions(elem)} type="radio" name="options" vaulue={elem} />
+                                    <div style={{ fontSize: '20pt' }} key={modal}>
+                                        <input
+                                            onChange={() => setOptions(elem)}
+                                            type="radio"
+                                            name="options"
+                                            vaulue={elem} />
                                         <label>{elem}</label>
                                     </div>
                                 )))}
 
+                                <button onClick={addOptionsExtras} type='button'
+                                    style={{
 
-                                <button onClick={addOptionsExtras}>Adicionar</button>
+                                        backgroundColor: '#FF3127',
+                                        color: 'white',
+                                        fontSize: '15pt',
+                                        cursor: 'pointer',
+                                        padding: '10px',
+                                        marginTop: '15px',
+                                        marginBottom: '30px',
+                                        border: 'none',
+                                        borderRadius: '10px'
+
+                                    }}>Adicionar ao pedido</button>
+
+                                <Button
+                                    id={'voltar'}
+                                    handleClick={() => setModal({ status: false })}
+                                    text='Voltar'
+                                />
                             </div>
 
                         ) : false}
@@ -156,17 +194,22 @@ const Restaurant = () => {
                 <aside>
                     <div>
                         <ul>
-                            <h1>Resumo do Pedido</h1>
+                            <h1 style={{ fontSize: '35px' }}>Resumo do Pedido</h1>
                             {products.map((products, index) => (
-                                <li key={index}>{products.name} R$ {products.price},00
-                            <Button text={'Remover Item'} handleClick={(e) => {
+                                <ul style={{ fontSize: '25px', color: 'grey' }}
+                                    key={index}>{products.name} R$ {products.price},00
+    
+                            <ButtonRemove text={'Remover'} handleClick={(e) => {
                                         e.preventDefault();
                                         removeItem(products);
-                                    }} /></li>
+                                    }} /></ul>
                             ))}
-                            <p><strong>Total: {totalPrice.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</strong></p>
-                            <Button id='btn-send' handleClick={onSubmit} text="Enviar Pedido" />
+                            <p><strong style={{ fontSize: '35px' }}>Total: {totalPrice.toLocaleString('pt-BR',
+                                { style: 'currency', currency: 'BRL' })}</strong></p>
 
+                            <Button id='btn-send'
+                                handleClick={onSubmit}
+                                text="Enviar Pedido" />
                         </ul>
                     </div>
                 </aside>

@@ -2,45 +2,16 @@
 
 ## Índice
 
-* [1. Preâmbulo](#1-preâmbulo)
-* [2. Resumo do projeto](#2-resumo-do-projeto)
-* [3. Objetivos de aprendizagem](#3-objetivos-de-aprendizagem)
-* [4. Considerações gerais](#4-considerações-gerais)
-* [5. Critérios de aceitação mínimos do
-  projeto](#5-critérios-de-aceitação-mínimos-do-projeto)
-* [6. Hacker Edition](#6-hacker-edition)
-* [7. Dicas e leituras complementares](#7-dicas-e-leituras-complementares)
+
+* [1. Resumo do projeto](#2-resumo-do-projeto)
+* [2. Objetivos de aprendizagem](#3-objetivos-de-aprendizagem)
+* [3. Considerações gerais](#4-considerações-gerais)
+* [4. Critérios de aceitação mínimos do projeto](#5-critérios-de-aceitação-mínimos-do-projeto)
+* [5. Hacker Edition](#6-hacker-edition)
 
 ***
 
-## 1. Preâmbulo
-
-[React](https://reactjs.org/), [Angular](https://angular.io/) e
-[Vue](https://vuejs.org/) são alguns dos _frameworks_ e _bibliotecas_ de
-JavaScript mais usados na área de desenvolvimento ao redor do mundo e existe uma
-razão para isso. No contexto do navegador, [_manter a interface sincronizada com
-o estado é difícil_](https://medium.com/dailyjs/the-deepest-reason-why-modern-javascript-frameworks-exist-933b86ebc445).
-
-Ao eleger um _framework_ ou _biblioteca_ para nossa interface, nos apoiamos em
-uma série de convenções e implementações _testadas_ e _documentadas_ para
-resolver um problema comum a toda interface web. Isto nos permite concentrar
-melhor (dedicar mais tempo) nas características _específicas_ de nossa
-aplicação.
-
-Quando escolhemos uma destas tecnologias não só importamos um pedaço de código
-para reusar (o qual já é um grande valor por si só), mas também adotamos uma
-**arquitetura**, uma série de **princípios de design**, um paradigma, algumas
-**abstrações**, um **vocabulário**, uma **comunidade**, etc...
-
-Como desenvolvedora Front-end, estes kits de desenvolvimento podem resultar em
-uma grande ajuda para implementar rapidamente _features_ dos projetos em que
-você for trabalhar.
-
-## 2. Resumo do projeto
-
-Desta vez temos um projeto 100% por demanda. Você sempre pode (e deve) fazer
-sugestões de melhora e mudança, mas muitas vezes trabalhará em um projeto em que
-primeiro deve se assegurar de cumprir os requisitos.
+## 1. Resumo do projeto
 
 Um pequeno restaurante de hambúrgueres, que está crescendo, necessita uma
 interface em que se possa realizar pedidos utilizando um _tablet_, e enviá-los
@@ -94,13 +65,13 @@ adicionar e a interface deve mostrar o _resumo do pedido_ com o custo total.
 
 ![out](https://user-images.githubusercontent.com/110297/45984241-b8b51c00-c025-11e8-8fa4-a390016bee9d.gif)
 
-## 3. Objetivos de aprendizagem
+## 2. Objetivos de aprendizagem
 
 O objetivo principal é aprender a construir uma interface web usando React. Esse framework front-end ataca o seguinte problema: **como manter a interface e estado sincronizados**. Portanto, esta experiência espera familiarizá-la com o conceito de estado da tela, e como cada mudança no estado vai refletir na interface (por exemplo, toda vez que adicionamos um _produto_ para um _pedido_, a interface deve atualizar a lista de pedidos e o total).
 
 Finalmente, a interface deve ser pensada específicamente para rodar em **tablets**.
  
-## 4. Considerações gerais
+## 3. Considerações gerais
 
 Este projeto é individual.
 
@@ -114,11 +85,8 @@ Precisamos pensar bem sobre o UX para aqueles que vão receber os pedidos, o tam
 
 O aplicativo deve usar scripts `npm-scripts` e ter `start`, `build` e `deploy`, que são responsáveis por iniciar, empacotar e implantar o aplicativo, respectivamente.
 
-Você deve definir a estrutura das pastas e arquivos que considera necessários. Você pode estruturá-los de acordo com as convenções do React.
 
-Para iniciar este projeto você terá que fazer um _fork_ e _clone_ deste repositório.
-
-## 5. Critérios mínimos de aceitação do projeto
+## 4. Critérios mínimos de aceitação do projeto
 
 ### Definição do produto
 
@@ -131,6 +99,8 @@ este _backlog_ que é o resultado do seu trabalho com o cliente até hoje.
 
 Eu como cliente quero poder anotar o meu pedido saber o valor de cada 
 produto e poder enviar o pedido para a cozinha para ser preparado.
+
+
 
 ##### Critérios de aceitação
 
@@ -186,7 +156,7 @@ Eu como garçom/garçonete quero ver os pedidos que estão prontos para entregá
 
 ***
 
-## 6. Hacker Edition 
+## 5. Hacker Edition 
 
 As seções chamadas Hacker Edition são opcionais. Se você terminou tudo e ainda sobrou tempo, faça essa parte. Assim você poderá aprofundar e exercitar mais sobre os objetivos de aprendizagem do projeto.
 
@@ -216,60 +186,6 @@ O acordado abaixo deve acontecer para dizer que a história está terminada:
 * Você deu deploy de seu aplicativo.
 
 ***
-
-## 7. Dicas e leituras complementares
-
-### Primeros passos
-
-* Faça um _fork_ deste repositório (no GitHub).
-
-* Clone seu _fork_ no seu computador:
-
-*  Crie um projeto usando `create-react-app`
-
-* Crie um projeto no [Firebase](https://firebase.google.com/)
-
-* Converta o menu descrito pelo cliente em uma coleção no Firebase.
-
-***
-
-### Outros recursos
-
-#### Framework / biblioteca
-
-* [React Hooks](https://reactjs.org/docs/hooks-intro.html)
-
-#### React Hooks
-
-* [Entendendo React Hooks](https://medium.com/@higornevesmarques/entendendo-react-hooks-2c0efae276a3)
-* [React Hooks - Rocketseat](https://blog.rocketseat.com.br/react-hooks/)
-* [Habemus React Hooks](https://willianjusten.com.br/habemus-react-hooks/)
-
-#### Ferramentas
-
-* [npm-scripts](https://docs.npmjs.com/misc/scripts)
-* [Babel](https://babeljs.io/)
-* [webpack](https://webpack.js.org/)
-* [Aphrodite](https://github.com/Khan/aphrodite)
-
-#### PWA
-
-* [Seu primeiro Progressive Web App - Google
-  developers](https://developers.google.com/web/fundamentals/codelabs/your-first-pwapp/?hl=es)
-* [Progressive Web Apps -
-  codigofacilito.com](https://codigofacilito.com/articulos/progressive-apps)
-* [offlinefirst.org](http://offlinefirst.org/)
-* [Usando Service Workers -
-  MDN](https://developer.mozilla.org/pt-BR/docs/Web/API/Service_Worker_API/Using_Service_Workers)
-* [Como habilitar dados sem conexão - Firebase
-  Docs](https://firebase.google.com/docs/firestore/manage-data/enable-offline?hl=es-419) 
-
-#### Serverless
-
-* [Serverless Framework 1.0 - Pagar.me Talks](https://www.youtube.com/watch?v=2oNovfw3V08)
-* [Firebase](https://firebase.google.com/)
-* [Serverless Architectures - Martin
-  Fowler](https://www.martinfowler.com/articles/serverless.html)
  
 ## Checklist
 
@@ -282,12 +198,12 @@ O acordado abaixo deve acontecer para dizer que a história está terminada:
 
 #### HU 1: Anotar pedidos
 
-* [ ] Digitar o nome do cliente.
-* [ ] Filtrar _menu_ para _café da manhã_ e _almoço/jantar_.
-* [ ] Adicionar item ao pedido.
-* [ ] Excluir item do pedido.
-* [ ] Mostrar _resumo_ do pedido com todos os itens e o total.
-* [ ] Enviar para a cozinha (isso deve salvar o pedido).
+* [x] Digitar o nome do cliente.
+* [x] Filtrar _menu_ para _café da manhã_ e _almoço/jantar_.
+* [x] Adicionar item ao pedido.
+* [x] Excluir item do pedido.
+* [x] Mostrar _resumo_ do pedido com todos os itens e o total.
+* [x] Enviar para a cozinha (isso deve salvar o pedido).
 
 #### HU 2: Ver pedidos na cozinha
 
@@ -304,7 +220,7 @@ O acordado abaixo deve acontecer para dizer que a história está terminada:
 
 * [ ] Funciona bem em tablets.
 * [ ] Fácil utilização em telas sensíveis ao toque.
-* [ ] Status atual do pedido sempre visível enquanto fazemos um pedido.
+* [x] Status atual do pedido sempre visível enquanto fazemos um pedido.
 
 ### Hacker Edition
 
