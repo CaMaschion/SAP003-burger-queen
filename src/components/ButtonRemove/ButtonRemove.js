@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Button = (props) => {
+const ButtonRemove = (props) => {
     return (
         <div>
 
@@ -8,19 +8,17 @@ const Button = (props) => {
                 onClick={props.handleClick}
                 type='button'
                 style={{
-                    backgroundColor: '#FF3127',
+                    backgroundColor: 'red',
                     color: 'white',
-                    fontSize: '20pt',
+                    fontSize: '15pt',
                     cursor: 'pointer',
-                    width: '550px',
+                    width: '30%',
                     padding: '15px',
                     marginTop: '40px',
-                    marginBottom: '40px',
                     textAlign: 'center',
                     justifyContent: 'center',
                     border: 'none',
                     borderRadius: '10px'
-
                 }}
 
                 className={props.button}>{props.text}</button>
@@ -28,5 +26,5 @@ const Button = (props) => {
         </div>
     )
 }
-export default Button
+export default ButtonRemove
 

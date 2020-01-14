@@ -12,9 +12,12 @@ const MenuList = (props) => {
                             color: 'white',
                             fontSize: '15pt',
                             cursor: 'pointer',
-                            padding: '10px',                            
-                            textAlign: 'center',                                                                                    
-                            margin: '20px'                           
+                            padding: '10px',
+                            textAlign: 'center',
+                            margin: '20px',
+                            border: 'none',
+                            borderRadius: '10px',
+
                         }}
                         onClick={() => { props.handleClick(menu) }}>
                         <div className="allMenu">

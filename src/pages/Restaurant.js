@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import firebase from '../utils/firebase.js'
+import firebase from '../utils/firebase.js';
 import Input from '../components/Input/Input';
 import Button from '../components/Button/';
-import MenuList from '../components/Menu/menu.js'
+import ButtonRemove from '../components/ButtonRemove/ButtonRemove';
+import MenuList from '../components/Menu/menu.js';
 import Nav from '../components/Nav/Nav';
-import { NavStyled, FormStyled } from '../Styles/styles'
-import { GlobalStyle } from '../Styles/styles'
+import { NavStyled, FormStyled } from '../Styles/styles';
+import { GlobalStyle } from '../Styles/styles';
 
 
 const Restaurant = () => {
@@ -16,8 +17,9 @@ const Restaurant = () => {
     const [filterMenu, setFilterMenu] = useState([])
     const [products, setProducts] = useState([])
     const [total, setTotal] = useState('')
-
-
+    const [modal, setModal] = useState({ status: false })
+    const [options, setOptions] = useState(" ")
+    const [extras, setExtras] = useState(" ")
 
     function onSubmit(e) {
         e.preventDefault()
@@ -67,7 +69,6 @@ const Restaurant = () => {
 
     }
 
-
     const removeItem = (item) => {
         const index = (products.indexOf(item))
         products.splice(index, 1)
@@ -75,10 +76,6 @@ const Restaurant = () => {
     }
 
     const totalPrice = products.reduce((accum, products) => accum + products.price, 0)
-    const [modal, setModal] = useState({ status: false })
-    const [options, setOptions] = useState(" ")
-    const [extras, setExtras] = useState(" ")
-
 
 
     const verifyOptions = (menu) => {
@@ -94,6 +91,7 @@ const Restaurant = () => {
         addProducts(updatedItem)
         setModal({ status: false })
     }
+
 
 
     return (
@@ -169,13 +167,17 @@ const Restaurant = () => {
 
                                 <button onClick={addOptionsExtras} type='button'
                                     style={{
+
                                         backgroundColor: '#FF3127',
                                         color: 'white',
-                                        fontSize: '25pt',
+                                        fontSize: '15pt',
                                         cursor: 'pointer',
                                         padding: '10px',
                                         marginTop: '15px',
-                                        marginBottom: '30px'
+                                        marginBottom: '30px',
+                                        border: 'none',
+                                        borderRadius: '10px'
+
                                     }}>Adicionar ao pedido</button>
 
                                 <Button
@@ -193,9 +195,10 @@ const Restaurant = () => {
                         <ul>
                             <h1 style={{ fontSize: '35px' }}>Resumo do Pedido</h1>
                             {products.map((products, index) => (
-                                <ul style={{ fontSize: '35px', color: '#595E5A' }} 
-                                key={index}>{products.name} R$ {products.price},00
-                            <Button text={'Remover Item'} handleClick={(e) => {
+                                <ul style={{ fontSize: '25px', color: 'grey' }}
+                                    key={index}>{products.name} R$ {products.price},00
+    
+                            <ButtonRemove text={'Remover'} handleClick={(e) => {
                                         e.preventDefault();
                                         removeItem(products);
                                     }} /></ul>

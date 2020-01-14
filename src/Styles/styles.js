@@ -27,8 +27,7 @@ export const NavStyled = styled.div`
 export const FormStyled = styled.div`
     display: flex;
     flex-direction: column;
-    background-color: rgb(255, 222, 89);
-    
+    background-color: rgb(255, 222, 89);    
 
 `
 
