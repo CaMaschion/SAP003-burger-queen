@@ -2,8 +2,7 @@ import React from 'react'
 
 const Button = (props) => {
     return (
-        <div>
-
+        <>
             <button
                 onClick={props.handleClick}
                 type='button'
@@ -25,8 +24,7 @@ const Button = (props) => {
                 }}
 
                 className={props.button}>{props.text}</button>
-
-        </div>
+        </>
     )
 }
 export default Button

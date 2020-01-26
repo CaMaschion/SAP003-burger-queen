@@ -1,12 +1,13 @@
 import React from 'react';
+import './InputStyle.css';
 
 
 const Input = (props) => {
   return (
-    <div>
+    <div className="formContainer">
       <label>{props.title}</label>
       <input type={props.type} value={props.val} onChange={props.handleChange}
-        style={{display: 'block'}} />
+        style={{ display: 'block' }} />
     </div>
 
   )
