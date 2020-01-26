@@ -1,0 +1,18 @@
+.buttonMenu {
+                    
+    background-color: #FF3127;
+    color: white;
+    font-size: 20pt;
+    cursor: pointer;    
+    padding: 15px;
+    margin-top: 40px;
+    margin-bottom: 40px;  
+    text-align: center;  
+    justify-content: center, space-between;
+    border: none;
+    border-radius:10px;
+    display: flex;                
+    margin-left: 50px;
+    margin-right: 100px
+
+}

@@ -4,7 +4,7 @@ const ButtonRemove = (props) => {
     return (
         <div>
 
-            <button
+            <button            
                 onClick={props.handleClick}
                 type='button'
                 style={{

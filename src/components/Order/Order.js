@@ -1,25 +1,20 @@
-import React from 'react'
+// import React from 'react'
 
-const Order = (props) => {   
-    return (                
-            {orders.length === 0 ? (
-                <OrderContent> Your order...</OrderContent>
-            ) : (
-                    <OrderContent>
-                        {" "}
-                        <OrderContainer>Your Order:</OrderContainer> {" "}
-                        {orders.map(order =>(
-                            <OrderContainer>
-                                <OrderItem key={order}>
-                                    {order.name}
-                                </OrderItem>
-                            </OrderContainer>
-                        ))}
-                    </OrderContent>
-                )}
-            <DialogFooter>
-                <ConfirmButton>Enviar Pedido</ConfirmButton>
-            </DialogFooter>
-        
-                    );
-}
+// const Order = (props) => {
+//     return (
+
+//         // <section>
+//         //     <ul>                
+//         //         {products.map(([products], index) => (
+//         //             <ul key={index}>{products.name} R$ {products.price},00</ul>
+//         //         ))}                
+
+//         //     </ul>
+//         // </section>
+
+
+
+
+//     )
+// }
+// export default Order

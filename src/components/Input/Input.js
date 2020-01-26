@@ -4,10 +4,9 @@ import './InputStyle.css';
 
 const Input = (props) => {
   return (
-    <div className="formContainer">
+    <div>
       <label>{props.title}</label>
-      <input type={props.type} value={props.val} onChange={props.handleChange}
-        style={{ display: 'block' }} />
+      <input type={props.type} value={props.val} onChange={props.handleChange}/>
     </div>
 
   )

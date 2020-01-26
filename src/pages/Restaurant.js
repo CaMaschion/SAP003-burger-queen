@@ -1,12 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import firebase from '../utils/firebase.js';
 import Input from '../components/Input/Input';
-import Button from '../components/Button/';
 import ButtonRemove from '../components/ButtonRemove/ButtonRemove';
 import MenuList from '../components/Menu/Menu.js';
 import Nav from '../components/Nav/Nav';
-import { GlobalStyle } from '../Styles/styles';
-
+import ButtonMenu from '../components/ButtonMenu/ButtonMenu';
+import Order from '../components/Order/Order';
 
 const Restaurant = () => {
 
@@ -19,7 +18,7 @@ const Restaurant = () => {
     const [modal, setModal] = useState({ status: false })
     const [options, setOptions] = useState(" ")
     const [extras, setExtras] = useState("")
-   // const [orders, setOrders] = useState([]);
+    const [order, setOrder] = useState([]);
 
     function onSubmit(e) {
         e.preventDefault()
@@ -94,19 +93,15 @@ const Restaurant = () => {
 
     return (
         <div className="App">
-            <GlobalStyle />
 
             <Nav text={'Burger Queen'} />
 
             <div className="container"
                 style={{
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    marginLeft: '50px',
-                    marginRight: '100px'
+
                 }}>
 
-                <div>
+                <div className="formContainer">
                     <form onSubmit={onSubmit}>
 
                         <h4>Dados do cliente</h4>
@@ -122,11 +117,11 @@ const Restaurant = () => {
 
                 <div>
 
-                    <section className='containerMenu' style={{ textAlign: 'center' }}>
+                    <section>
 
-                        <Button text={'Café da Manhã'}
+                        <ButtonMenu text={'Café da Manhã'}
                             handleClick={() => showFilteredMenu('breakfast')} />
-                        <Button text={'Lanches'}
+                        <ButtonMenu text={'Lanches'}
                             handleClick={() => showFilteredMenu('lunch')} />
 
                     </section>
@@ -153,7 +148,7 @@ const Restaurant = () => {
                                 )))}
                                 <h3>Opções de Hambúrguer</h3>
                                 {modal.item.options.map((elem => (
-                                    <div  key={modal}>
+                                    <div key={modal}>
                                         <input
                                             onChange={() => setOptions(elem)}
                                             type="radio"
@@ -178,7 +173,7 @@ const Restaurant = () => {
 
                                     }}>Adicionar ao pedido</button>
 
-                                <Button
+                                <ButtonMenu
                                     id={'voltar'}
                                     handleClick={() => setModal({ status: false })}
                                     text='Voltar'
@@ -188,27 +183,31 @@ const Restaurant = () => {
                         ) : false}
                     </section>
                 </div>
-                <aside>
-                    <div>
-                        <ul>
-                            <h1>Resumo do Pedido</h1>
-                            {products.map((products, index) => (
-                                <ul key={index}>{products.name} R$ {products.price},00
+                
+                    <aside>
+                        <div>
+                            <ul>
+                                <h1>Resumo do Pedido</h1>
+                                {products.map((products, index) => (
+                                    <ul key={index}>{products.name} R$ {products.price},00</ul>
+                                ))}
 
-                            <ButtonRemove text={'Remover'} handleClick={(e) => {
+                                <ButtonRemove text={'Remover'}
+                                    handleClick={(e) => {
                                         e.preventDefault();
                                         removeItem(products);
-                                    }} /></ul>
-                            ))}
-                            <p><strong >Total: {totalPrice.toLocaleString('pt-BR',
-                                { style: 'currency', currency: 'BRL' })}</strong></p>
+                                    }}></ButtonRemove>
 
-                            <Button id='btn-send'
-                                handleClick={onSubmit}
-                                text="Enviar Pedido" />
-                        </ul>
-                    </div>
-                </aside>
+                                <p><strong> Total: {totalPrice.toLocaleString('pt-BR',
+                                    { style: 'currency', currency: 'BRL' })}</strong></p>
+
+                                <ButtonMenu id='btn-send'
+                                    handleClick={onSubmit}
+                                    text="Enviar Pedido" />
+                            </ul>
+                        </div>
+                    </aside>
+                
             </div>
         </div>
     )
