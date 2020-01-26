@@ -1,0 +1,10 @@
+@media (min-width: 768px), (max-width: 1024px) and (min-width: 1281px){
+
+    .formContainer{
+    
+        display: flex;
+        flex-direction: column;
+        background-color: rgb(255, 222, 89); 
+    }
+
+}

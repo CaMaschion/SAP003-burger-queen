@@ -36,3 +36,26 @@ const MenuList = (props) => {
 
 export default MenuList
 
+// export function Menu({setOpenFood}) {
+//     return ( 
+//         <MenuStyled>
+//         {Object.entries(foods).map(([sectionName, foods], index) => (
+//           <div key={index}>
+//                 <h1>{sectionName}</h1>
+//                 <FoodGrid>
+//                     {foods.map(food => (
+//                         <Food img={food.img} key={food.name} 
+//                         onClick={() => {
+//                             setOpenFood(food);
+//                         }}>
+//                             <FoodLabel>{food.name}</FoodLabel>
+//                         </Food>
+//                     ))}
+//                 </FoodGrid>
+//             </div>
+//         ))}
+//       </MenuStyled>
+//     );
+
+// }
+
