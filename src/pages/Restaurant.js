@@ -5,7 +5,8 @@ import ButtonRemove from '../components/ButtonRemove/ButtonRemove';
 import MenuList from '../components/Menu/Menu.js';
 import Nav from '../components/Nav/Nav';
 import ButtonMenu from '../components/ButtonMenu/ButtonMenu';
-import Order from '../components/Order/Order';
+import "./Restaurant.css";
+
 
 const Restaurant = () => {
 
@@ -18,7 +19,7 @@ const Restaurant = () => {
     const [modal, setModal] = useState({ status: false })
     const [options, setOptions] = useState(" ")
     const [extras, setExtras] = useState("")
-    const [order, setOrder] = useState([]);
+
 
     function onSubmit(e) {
         e.preventDefault()
@@ -96,15 +97,13 @@ const Restaurant = () => {
 
             <Nav text={'Burger Queen'} />
 
-            <div className="container"
-                style={{
-
-                }}>
+            <div className="container">
 
                 <div className="formContainer">
                     <form onSubmit={onSubmit}>
 
                         <h4>Dados do cliente</h4>
+
                         <Input title="Nome: "
                             type="text" val={client}
                             handleChange={e => setClient(e.currentTarget.value)} />
@@ -115,101 +114,92 @@ const Restaurant = () => {
                     </form>
                 </div>
 
+                <section>
+
+                    <ButtonMenu text={'Café da Manhã'}
+                        handleClick={() => showFilteredMenu('breakfast')} />
+                    <ButtonMenu text={'Lanches'}
+                        handleClick={() => showFilteredMenu('lunch')} />
+
+                </section>
+
                 <div>
 
-                    <section>
+                    <MenuList menuItens={filterMenu}
+                        handleClick={verifyOptions} id={'breakfast'} />
 
-                        <ButtonMenu text={'Café da Manhã'}
-                            handleClick={() => showFilteredMenu('breakfast')} />
-                        <ButtonMenu text={'Lanches'}
-                            handleClick={() => showFilteredMenu('lunch')} />
-
-                    </section>
-
-                    <div>
-
-                        <MenuList menuItens={filterMenu}
-                            handleClick={verifyOptions} id={'breakfast'} />
-
-                    </div>
-                    <section>
-                        {modal.status ? (
-                            <div>
-                                <h3>Extras</h3>
-                                {modal.item.extra.map((elem => (
-                                    <div key={modal}>
-                                        <input
-                                            onChange={() => setExtras(elem)}
-                                            type="radio"
-                                            name="extras"
-                                            value={elem} />
-                                        <label>{elem}</label>
-                                    </div>
-                                )))}
-                                <h3>Opções de Hambúrguer</h3>
-                                {modal.item.options.map((elem => (
-                                    <div key={modal}>
-                                        <input
-                                            onChange={() => setOptions(elem)}
-                                            type="radio"
-                                            name="options"
-                                            vaulue={elem} />
-                                        <label>{elem}</label>
-                                    </div>
-                                )))}
-
-                                <button onClick={addOptionsExtras} type='button'
-                                    style={{
-
-                                        backgroundColor: '#FF3127',
-                                        color: 'white',
-                                        fontSize: '15pt',
-                                        cursor: 'pointer',
-                                        padding: '10px',
-                                        marginTop: '15px',
-                                        marginBottom: '30px',
-                                        border: 'none',
-                                        borderRadius: '10px'
-
-                                    }}>Adicionar ao pedido</button>
-
-                                <ButtonMenu
-                                    id={'voltar'}
-                                    handleClick={() => setModal({ status: false })}
-                                    text='Voltar'
-                                />
-                            </div>
-
-                        ) : false}
-                    </section>
                 </div>
-                
-                    <aside>
+
+                <section>
+
+                    {modal.status ? (
                         <div>
-                            <ul>
-                                <h1>Resumo do Pedido</h1>
-                                {products.map((products, index) => (
-                                    <ul key={index}>{products.name} R$ {products.price},00</ul>
-                                ))}
 
-                                <ButtonRemove text={'Remover'}
-                                    handleClick={(e) => {
-                                        e.preventDefault();
-                                        removeItem(products);
-                                    }}></ButtonRemove>
+                            <h3>Extras</h3>
 
-                                <p><strong> Total: {totalPrice.toLocaleString('pt-BR',
-                                    { style: 'currency', currency: 'BRL' })}</strong></p>
+                            {modal.item.extra.map((elem => (
+                                <div key={modal}>
+                                    <input
+                                        onChange={() => setExtras(elem)}
+                                        type="radio"
+                                        name="extras"
+                                        value={elem} />
+                                    <label>{elem}</label>
+                                </div>
+                            )))}
 
-                                <ButtonMenu id='btn-send'
-                                    handleClick={onSubmit}
-                                    text="Enviar Pedido" />
-                            </ul>
+                            <h3>Opções de Hambúrguer</h3>
+
+                            {modal.item.options.map((elem => (
+                                <div key={modal}>
+                                    <input
+                                        onChange={() => setOptions(elem)}
+                                        type="radio"
+                                        name="options"
+                                        vaulue={elem} />
+                                    <label>{elem}</label>
+                                </div>
+                            )))}
+
+                            <button className="addOrder" onClick={addOptionsExtras} type='button'>Adicionar ao pedido</button>
+
+                            <ButtonMenu
+                                id={'voltar'}
+                                handleClick={() => setModal({ status: false })}
+                                text='Voltar'
+                            />
                         </div>
-                    </aside>
-                
+
+                    ) : false}
+                </section>
+
+
+                <aside>
+                    <ul>
+                        <div className="orderList">
+                            <h1> Resumo do Pedido </h1>
+                            {products.map((products, index) => (
+                                <ul key={index}>{products.name} R$ {products.price},00</ul>
+                            ))}
+                        </div>
+
+                        <ButtonRemove text={'Remover'}
+                            handleClick={(e) => {
+                                e.preventDefault();
+                                removeItem(products);
+                            }}></ButtonRemove>
+
+                        <p><strong> Total: {totalPrice.toLocaleString('pt-BR',
+                            { style: 'currency', currency: 'BRL' })}</strong></p>
+
+                        <ButtonMenu id='btn-send'
+                            handleClick={onSubmit}
+                            text="Enviar Pedido" />
+                    </ul>
+                </aside>
             </div>
         </div>
+
     )
 }
 

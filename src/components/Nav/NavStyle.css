@@ -3,11 +3,13 @@
     .image{
 
         background-color: black;            
-        height: 190px;
-        font-size: 40px;
+        height: 60px;
+        width: 100%;
+        font-size: 30px;
         color: white;
-        display: flex;
-        justify-content: center;
+        display: flex;        
         align-items: center;
+        justify-content: center;
+        
     }
 }
