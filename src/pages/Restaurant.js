@@ -3,7 +3,7 @@ import firebase from '../utils/firebase.js';
 import Input from '../components/Input/Input';
 import ButtonRemove from '../components/ButtonRemove/ButtonRemove';
 import MenuList from '../components/Menu/Menu.js';
-import Nav from '../components/Nav/Nav';
+import Nav from '../components/Nav/Nav.js';
 import ButtonMenu from '../components/ButtonMenu/ButtonMenu';
 import "./Restaurant.css";
 
@@ -32,6 +32,7 @@ const Restaurant = () => {
                 table,
                 products,
                 totalPrice: total,
+                status: "Em Andamento", 
 
             })
             .then(() => {
@@ -95,7 +96,7 @@ const Restaurant = () => {
     return (
         <div className="App">
 
-            <Nav text={'Burger Queen'} />
+            
 
             <div className="container">
 

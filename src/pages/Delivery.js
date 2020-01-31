@@ -2,18 +2,18 @@ import firebase from '../utils/firebase.js';
 import React, { useState, useEffect } from 'react';
 import ButtonMenu from '../components/ButtonMenu/ButtonMenu.js';
 import MenuList from '../components/Menu/Menu.js';
-import Nav from '../components/Nav/Nav';
-//import './kitchen.css';
+import Nav from '../components/Nav/Nav.js';
+import './Delivery.css';
 
 
-const Kitchen = () => {
+const Delivery = () => {
 
     const [client, setClient] = useState([])
 
     useEffect(() => {
         const order = []
         firebase.firestore()
-            .collection('orders')
+            .collection('client')
             .get().then((querySnapshot) => {
                 querySnapshot.forEach(doc => {
                     order.push({
@@ -30,30 +30,33 @@ const Kitchen = () => {
     const updateStatus = (doc) => {
 
         firebase.firestore()
-            .collection('orders').doc(doc.id).update({
-                status: 'Pronto',
-            })
+            .collection('client').doc(doc.id).update({
+                status: 'Entregue',
 
+            })
         setClient(client.filter(item => item.id !== doc.id))
     };
     return (
 
-        <>           
-            <div className={'cozinha-tudo'}>
+        <>
+            
+            <div className={'all'}>
                 {client.map((doc, index) =>
-                    doc.status === 'Em Andamento' ?
-                        <div key={index} className={'cozinha'}>
+                    doc.status === 'Pronto' ?
+                        <div key={index} className={'delivery'}>
                             <MenuList
                                 name={doc.client}
                                 mesa={doc.table}
                                 total={doc.total}
                                 productSelect={doc.productSelect}
-                            />
 
-                            <ButtonMenu className={'btn-cozinha'} text={'Pedido Pronto'} handleClick={() => updateStatus(doc)} />
+                            />
+                            <ButtonMenu className={'btn-cozinha'} text={'Pedido Entregue'} handleClick={() => updateStatus(doc)} />
+
 
                         </div>
                         : null
+
                 )}
             </div>
         </>
@@ -61,4 +64,4 @@ const Kitchen = () => {
 
 }
 
-export default Kitchen;
+export default Delivery;
