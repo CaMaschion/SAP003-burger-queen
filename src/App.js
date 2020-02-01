@@ -15,7 +15,7 @@ import {
 function App() {
   return (
     <Router>  
-      <Nav text={'Burger Queen'} />     
+      <Nav/>     
       <div>          
         <Switch>
           <Route path="/salao" component={Restaurant}/>           

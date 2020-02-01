@@ -1,9 +1,8 @@
 import firebase from '../utils/firebase.js';
 import React, { useState, useEffect } from 'react';
 import ButtonMenu from '../components/ButtonMenu/ButtonMenu.js';
-import MenuList from '../components/Menu/Menu.js';
-import Nav from '../components/Nav/Nav';
-//import './kitchen.css';
+import OrderKitchen from '../components/Order/OrderKitchen';
+import './Kitchen.css';
 
 
 const Kitchen = () => {
@@ -43,11 +42,11 @@ const Kitchen = () => {
                 {client.map((doc, index) =>
                     doc.status === 'Em Andamento' ?
                         <div key={index} className={'cozinha'}>
-                            <MenuList
-                                name={doc.client}
-                                mesa={doc.table}
+                            <OrderKitchen
+                                client={doc.client}
+                                table={doc.table}
                                 total={doc.total}
-                                productSelect={doc.productSelect}
+                                products={doc.products}
                             />
 
                             <ButtonMenu className={'btn-cozinha'} text={'Pedido Pronto'} handleClick={() => updateStatus(doc)} />

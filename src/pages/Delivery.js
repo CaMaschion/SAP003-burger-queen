@@ -2,7 +2,6 @@ import firebase from '../utils/firebase.js';
 import React, { useState, useEffect } from 'react';
 import ButtonMenu from '../components/ButtonMenu/ButtonMenu.js';
 import MenuList from '../components/Menu/Menu.js';
-import Nav from '../components/Nav/Nav.js';
 import './Delivery.css';
 
 
@@ -45,10 +44,10 @@ const Delivery = () => {
                     doc.status === 'Pronto' ?
                         <div key={index} className={'delivery'}>
                             <MenuList
-                                name={doc.client}
-                                mesa={doc.table}
+                                client={doc.client}
+                                table={doc.table}
                                 total={doc.total}
-                                productSelect={doc.productSelect}
+                                products={doc.products}
 
                             />
                             <ButtonMenu className={'btn-cozinha'} text={'Pedido Entregue'} handleClick={() => updateStatus(doc)} />

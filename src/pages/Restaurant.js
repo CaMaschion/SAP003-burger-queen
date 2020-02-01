@@ -3,7 +3,6 @@ import firebase from '../utils/firebase.js';
 import Input from '../components/Input/Input';
 import ButtonRemove from '../components/ButtonRemove/ButtonRemove';
 import MenuList from '../components/Menu/Menu.js';
-import Nav from '../components/Nav/Nav.js';
 import ButtonMenu from '../components/ButtonMenu/ButtonMenu';
 import "./Restaurant.css";
 
