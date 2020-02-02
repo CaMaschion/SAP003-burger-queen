@@ -3,7 +3,7 @@
 
     .box-card{
         max-width: 100%;
-        /* justify-content: flex-end; */
+       
     }
 
     .menu-card {
@@ -13,7 +13,7 @@
         margin-left: 130px;       
         display: grid;
         grid-gap: 5px;
-        grid-template-columns: repeat(2, 1fr); 
+        grid-template-columns: repeat(4, 1fr); 
         justify-content: flex-end;
         
     }

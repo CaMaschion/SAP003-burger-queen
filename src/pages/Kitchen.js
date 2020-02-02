@@ -21,8 +21,7 @@ const Kitchen = () => {
                         ...doc.data()
                     })
                 })
-                setClient(order)
-
+                setClient(order)                
             })
     }, [])
 

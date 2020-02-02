@@ -30,24 +30,37 @@
 
 .order-list{
 
-    position: absolute;
-    margin-top: 8%;
-    right: 0px;
-    top: 48px;
-    width: 340px;
-    background-color: rgb(240, 235, 163);
-    height: 150%;
-    z-index: 10;  
     display: flex;
     flex-direction: column;
-        
+    justify-content: flex-start;
+    align-content: center;
+    width: 45%;
+    border-style: groove;
+    border-color: black;
+    border-radius: 2%;
+    padding: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+   
+}
+
+.list {
+    display: flex;
+    justify-content: center;
 }
 
 .footer{
-    box-shadow: 0px -2px 10px 0px grey;
+
+    /* position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 20%;    
+    color: white;
+    text-align: center;
+    margin-left: 77%;   
     height: 70px;
-    display: flex;
-    justify-content: center;
+    justify-content: center; */
 }
 
 

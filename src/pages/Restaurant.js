@@ -159,7 +159,7 @@ const Restaurant = () => {
                                                 onChange={() => setOptions(elem)}
                                                 type="radio"
                                                 name="options"
-                                                vaulue={elem} />
+                                                value={elem} />
                                             <label>{elem}</label>
                                         </div>
                                     )))}
@@ -184,29 +184,29 @@ const Restaurant = () => {
             <div className="order-list">
 
                 <h1> Resumo do Pedido </h1>
+
                 {products.map((products, index) => (
-                    <ul key={index}>{products.name} R$ {products.price},00</ul>
+                    <li className='list' key={index}>{products.name} R$ {products.price},00
+                        <ButtonRemove
+                            text={'X'}
+                            handleClick={(e) => {
+                                e.preventDefault();
+                                removeItem(products);
+                            }}
+                        ></ButtonRemove>
+                    </li>
                 ))}
 
                 <p><strong> Total: {totalPrice.toLocaleString('pt-BR',
                     { style: 'currency', currency: 'BRL' })}</strong></p>
-
-
-                <ButtonRemove text={'X'}
-                    handleClick={(e) => {
-                        e.preventDefault();
-                        removeItem(products);
-                    }}></ButtonRemove>
 
                 <footer className='footer'>
                     <ConfirmButton
                         handleClick={onSubmit}
                         text="Enviar Pedido" />
                 </footer>
-
             </div>
         </>
-
     )
 }
 
