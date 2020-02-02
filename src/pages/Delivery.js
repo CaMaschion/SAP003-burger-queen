@@ -1,7 +1,8 @@
 import firebase from '../utils/firebase.js';
 import React, { useState, useEffect } from 'react';
 import ButtonMenu from '../components/ButtonMenu/ButtonMenu.js';
-import MenuList from '../components/Menu/Menu.js';
+import OrderKitchen from '../components/Order/OrderKitchen.js';
+import Nav from '../components/Nav/Nav';
 import './Delivery.css';
 
 
@@ -12,7 +13,7 @@ const Delivery = () => {
     useEffect(() => {
         const order = []
         firebase.firestore()
-            .collection('client')
+            .collection('orders')
             .get().then((querySnapshot) => {
                 querySnapshot.forEach(doc => {
                     order.push({
@@ -29,7 +30,7 @@ const Delivery = () => {
     const updateStatus = (doc) => {
 
         firebase.firestore()
-            .collection('client').doc(doc.id).update({
+            .collection('orders').doc(doc.id).update({
                 status: 'Entregue',
 
             })
@@ -38,12 +39,12 @@ const Delivery = () => {
     return (
 
         <>
-            
+           <Nav />
             <div className={'all'}>
                 {client.map((doc, index) =>
                     doc.status === 'Pronto' ?
                         <div key={index} className={'delivery'}>
-                            <MenuList
+                            <OrderKitchen
                                 client={doc.client}
                                 table={doc.table}
                                 total={doc.total}

@@ -2,6 +2,7 @@ import firebase from '../utils/firebase.js';
 import React, { useState, useEffect } from 'react';
 import ButtonMenu from '../components/ButtonMenu/ButtonMenu.js';
 import OrderKitchen from '../components/Order/OrderKitchen';
+import Nav from '../components/Nav/Nav';
 import './Kitchen.css';
 
 
@@ -37,7 +38,8 @@ const Kitchen = () => {
     };
     return (
 
-        <>           
+        <>    
+            <Nav />       
             <div className={'cozinha-tudo'}>
                 {client.map((doc, index) =>
                     doc.status === 'Em Andamento' ?

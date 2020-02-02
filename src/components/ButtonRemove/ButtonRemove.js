@@ -7,9 +7,11 @@ const ButtonRemove = (props) => {
             <button
                 className="buttonRemove"
                 onClick={props.handleClick}
+                onChange={props.handleChange}
                 type='button'
                 text={props.button}>
                 {props.text}</button>
+                
         </>
     )
 }

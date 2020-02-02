@@ -4,13 +4,15 @@ import './ButtonMenuStyle.css';
 const ButtonMenu = (props) => {
     return (
         <>
-            <button 
-                className="buttonMenu"
-                onClick={props.handleClick}
-                type='button'
-                text={props.button}>
-                {props.text}
-            </button>
+            <div className='button-size'>
+                <button
+                    className="buttonMenu"
+                    onClick={props.handleClick}
+                    type='button'
+                    text={props.button}>
+                    {props.text}
+                </button>
+            </div>
         </>
     )
 }

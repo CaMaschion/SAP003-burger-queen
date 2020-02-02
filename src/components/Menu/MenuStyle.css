@@ -1,25 +1,52 @@
 @media (min-width: 768px), (max-width: 1024px) and (min-width: 1281px){
 
-    .teste {
-        width: 70%;
-        display: flex;
-        flex-wrap: wrap;
+
+    .box-card{
+        max-width: 100%;
+        /* justify-content: flex-end; */
     }
+
+    .menu-card {
+        max-width:100%;        
+        flex-wrap: wrap;
+        margin-top: 50px;
+        margin-left: 130px;       
+        display: grid;
+        grid-gap: 5px;
+        grid-template-columns: repeat(2, 1fr); 
+        /* margin: 0 auto;               */
+        justify-content: flex-end;
+        
+    }
+
     .allMenu{
 
-        /* display: inline-block; */
-        background-color: black;
+        background-color: black;        
         color: white;
         width: 150px;
         height: 150px;
         font-size: 15pt;        
-        padding: 10px;
+        /* padding: 10px; */
         text-align: center;                                  
         margin: 20px;
         border: none;  
         border-radius: 10px;        
         cursor: pointer;        
-        box-shadow: 0px 5px 10px 0px grey;                        
+        box-shadow: 0px 5px 10px 0px grey;
+                              
              
+    }
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+
+    .menu-card {
+        width: 70%;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        margin-top: 55%;
+        position: fixed;
+        margin-left: -50%;
     }
 }

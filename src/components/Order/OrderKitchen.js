@@ -1,17 +1,17 @@
 import React from 'react';
-//import './OrderKitchen.css';
+import './OrderKitchen.css';
 
 const OrderKitchen = (props) => (
-        <div className={'card'}>
+        <div className='card'>   
+            
             <h3>Nome: {props.name}</h3>
             <p>Mesa: {props.table} </p>
             <section>Itens: 
                 {props.products.map((item, index) =>
-                    <p key={index} className={'itens'}>{item.contador} {item.name}</p> 
-                 )}
+                    <p key={index} className='itens'>{item.contador} {item.name}</p> 
+                 )} 
             </section>
-            <h4>Total: {props.total}</h4>
-                       
+            <h4>Total: {props.total}</h4>                       
         </div>
 )
 

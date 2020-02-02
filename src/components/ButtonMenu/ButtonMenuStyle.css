@@ -1,22 +1,23 @@
 @media (min-width: 768px), (max-width: 1024px) and (min-width: 1281px){
 
 .buttonMenu {
-                    
-    background-color: #FF3127;
-    color: white;
-    font-size: 20pt;
-    cursor: pointer;    
-    padding: 15px;
-    margin-top: 80px;
-    margin-bottom: 40px;  
-    text-align: center;  
-    justify-content: center, space-between;
-    border: none;
-    width: 50%;
-    display: flex;                
-    margin-left: 50px;
-    margin-right: 100px;
-    border-radius: 10px;
+
+display: inline-block;
+height: 3em;
+width: 7em;
+padding: 10px;
+margin: 1%;
+border-radius: 10px;
+background:black;
+color: white;
+font-size: 20pt;
+cursor: pointer;
+border: none;
+margin-left: 5%;
 
     }
+}
+
+.button-size{
+    max-width: 50%;
 }

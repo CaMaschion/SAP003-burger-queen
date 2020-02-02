@@ -1,5 +1,6 @@
 @media (min-width: 768px), (max-width: 1024px) and (min-width: 1281px){
 
+    
     .image{
 
         background-color: black;            
@@ -15,19 +16,12 @@
 
     .img {
         width: 50%;        
-        display: flex;
-        margin-left: -260%;       
+        display: flex;            
         
     }
 
     @media (min-width: 768px) and (max-width: 1024px) {
-        .img {
-            width: 50%;        
-            display: flex;
-            margin-left: -120%;       
-            
-        }
-    
+   
         
     }
 }

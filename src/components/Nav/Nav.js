@@ -10,7 +10,7 @@ const Nav = (props) => {
       <div className="image">         
          <Link to="/">
         <img src={Logo} alt='logo burger queen' className={'img'} /></Link>
-        <nav id="main-nav">{props.text}</nav>
+        <nav className="main-nav">{props.text}</nav>
         {/* <div className={'navegation'}>
         <Link to="/salao" className='link'>Restaurante</Link>
         <Link to="/cozinha" className='link'>Cozinha</Link>

@@ -5,6 +5,16 @@
     
 }
 
+.button-menu {
+    margin: 0%;
+    margin-top: 0%;
+    margin-left: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    margin-top: 20%;
+    margin-left: -20%;    
+}
+
 .addOrder {
     background-color: #FF3127;
     color: white;
@@ -21,14 +31,30 @@
 
 .orderList{
 
-    position: fixed;
-    right: 0px;
-    top: 60px;
-    width: 340px;
-    background-color: rgb(238, 133, 119);
-    height: calc(100% - 48px);
-    z-index: 10;   
     display: flex;
     flex-direction: column; 
+    justify-content: flex-start;
+    align-content: center;
+    position: fixed;
+    right: 0px;
+    top: 120px;
+    width: 340px;
+    background-color: rgb(230, 175, 175);
+    height: calc(100% - 48px);
+    
 }
 
+@media (min-width: 768px) and (max-width: 1024px){
+
+    .button-menu {
+
+        margin: 0%;
+        margin-top: 0%;
+        margin-left: 0%;
+        padding: 0%;
+        box-sizing: border-box;
+        margin-top: 30%;
+        margin-left: -20%;
+    }
+
+}

@@ -1,0 +1,38 @@
+@media (min-width: 768px), (max-width: 1024px) and (min-width: 1281px){
+
+.card{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    width: 20em;
+    justify-content: left;
+    margin:1%;
+    font-size: 10pt;
+    border-radius: 10px;
+    background: rgb(241, 67, 67);
+    color: white;
+    border-style: groove;
+    border-color: black;
+    padding: 2%;
+ }
+ 
+ h3{
+     margin: 1%;
+ 
+ }
+ p{
+     margin: 1%;
+ }
+ 
+ h4{
+     margin: 1%;
+ }
+ 
+ section{
+     margin:1%
+ }
+ 
+ .itens{
+     margin-left: 2%;
+ }
+}
