@@ -1,5 +1,16 @@
 @media (min-width: 768px), (max-width: 1024px) and (min-width: 1281px){
 
+    .img-main{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 15em;
+        width: 15em;
+        padding:1px;
+        margin: 2%;
+        margin-top: -10px;
+    }
+
     .main-navigation{
         display: flex;
         justify-content: center;
@@ -20,4 +31,12 @@
         text-align: center;
         text-decoration-line:none;
         }
+
+    .main-link:hover{
+        background: rgb(241, 67, 67);
+        color: rgb(255, 222, 89);
+            
+        }
+    
     }
+

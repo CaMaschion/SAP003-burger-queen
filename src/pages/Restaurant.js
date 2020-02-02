@@ -101,7 +101,6 @@ const Restaurant = () => {
                     alt={'Burger Queen'}
                 />
 
-
                 <div className="container">
 
                     <div className="formContainer">
@@ -133,50 +132,51 @@ const Restaurant = () => {
                         <MenuList menuItens={filterMenu}
                             handleClick={verifyOptions} id={'breakfast'} />
 
+                        <section>
+
+                            {modal.status ? (
+                                <div>
+
+                                    <h3>Extras</h3>
+
+                                    {modal.item.extra.map((elem => (
+                                        <div key={modal}>
+                                            <input
+                                                onChange={() => setExtras(elem)}
+                                                type="radio"
+                                                name="extras"
+                                                value={elem} />
+                                            <label>{elem}</label>
+                                        </div>
+                                    )))}
+
+                                    <h3>Opções de Hambúrguer</h3>
+
+                                    {modal.item.options.map((elem => (
+                                        <div key={modal}>
+                                            <input
+                                                onChange={() => setOptions(elem)}
+                                                type="radio"
+                                                name="options"
+                                                vaulue={elem} />
+                                            <label>{elem}</label>
+                                        </div>
+                                    )))}
+
+                                    <button className="addOrder" onClick={addOptionsExtras} type='button'>Adicionar ao pedido</button>
+
+                                    <ButtonMenu
+                                        id={'voltar'}
+                                        handleClick={() => setModal({ status: false })}
+                                        text='Fechar'
+                                    />
+                                </div>
+
+                            ) : false}
+                        </section>
+
                     </div>
 
-                    <section>
-
-                        {modal.status ? (
-                            <div>
-
-                                <h3>Extras</h3>
-
-                                {modal.item.extra.map((elem => (
-                                    <div key={modal}>
-                                        <input
-                                            onChange={() => setExtras(elem)}
-                                            type="radio"
-                                            name="extras"
-                                            value={elem} />
-                                        <label>{elem}</label>
-                                    </div>
-                                )))}
-
-                                <h3>Opções de Hambúrguer</h3>
-
-                                {modal.item.options.map((elem => (
-                                    <div key={modal}>
-                                        <input
-                                            onChange={() => setOptions(elem)}
-                                            type="radio"
-                                            name="options"
-                                            vaulue={elem} />
-                                        <label>{elem}</label>
-                                    </div>
-                                )))}
-
-                                <button className="addOrder" onClick={addOptionsExtras} type='button'>Adicionar ao pedido</button>
-
-                                <ButtonMenu
-                                    id={'voltar'}
-                                    handleClick={() => setModal({ status: false })}
-                                    text='Voltar'
-                                />
-                            </div>
-
-                        ) : false}
-                    </section>
 
 
                     <aside>

@@ -18,6 +18,12 @@ margin-left: 5%;
     }
 }
 
+.buttonMenu:hover{
+    background: rgb(241, 67, 67);
+    color: rgb(255, 222, 89);
+    
+}
+
 .button-size{
     max-width: 50%;
 }

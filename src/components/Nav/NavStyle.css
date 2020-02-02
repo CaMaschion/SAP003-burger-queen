@@ -4,21 +4,49 @@
     .image{
 
         background-color: black;            
-        height: 120px;
+        height: 150px;
         width: 100%;
         font-size: 30px;
         color: white;
         display: flex;        
         align-items: center;
-        justify-content: center;
-        
+        justify-content: center;        
     }
 
     .img {
+
         width: 50%;        
-        display: flex;            
-        
+        display: flex;        
     }
+    
+
+    .menu-nav{
+
+        flex-direction: column;
+        display: flex;
+        margin-left: 70%;
+    }
+
+    .link {
+    
+        max-width: 210%;
+        margin: 5px;
+        padding: 5px;
+        border-radius: 10px;
+        background-color: rgb(241, 67, 67);
+        color: white;
+        font-size: 40%;
+        display: block;
+        text-align: center;
+        text-decoration-line:none;
+
+    }
+    
+    .link:hover {
+    background: rgb(241, 67, 67);
+    color: rgb(255, 222, 89);
+    
+}
 
     @media (min-width: 768px) and (max-width: 1024px) {
    
