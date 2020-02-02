@@ -50,6 +50,12 @@
 
     @media (min-width: 768px) and (max-width: 1024px) {
    
+        .menu-nav{
+
+            flex-direction: column;
+            display: flex;
+            margin-left: 55%;
+        }
         
     }
 }

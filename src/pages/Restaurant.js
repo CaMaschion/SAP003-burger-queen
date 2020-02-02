@@ -31,7 +31,7 @@ const Restaurant = () => {
                 client,
                 table,
                 products,
-                totalPrice: total,
+                total,
                 status: "Em Andamento",
 
             })
@@ -176,36 +176,33 @@ const Restaurant = () => {
                         </section>
 
                     </div>
-
-
-
-                    <aside>
-                        <ul>
-                            <div className="orderList">
-                                <h1> Resumo do Pedido </h1>
-                                {products.map((products, index) => (
-                                    <ul key={index}>{products.name} R$ {products.price},00</ul>
-                                ))}
-
-                                <p><strong> Total: {totalPrice.toLocaleString('pt-BR',
-                                    { style: 'currency', currency: 'BRL' })}</strong></p>
-
-
-                                <ButtonRemove text={'X'}
-                                    handleClick={(e) => {
-                                        e.preventDefault();
-                                        removeItem(products);
-                                    }}></ButtonRemove>
-
-
-                                <ButtonMenu id='btn-send'
-                                    handleClick={onSubmit}
-                                    text="Enviar Pedido" />
-                            </div>
-                        </ul>
-                    </aside>
                 </div>
+             
             </div>
+
+            <div className="order-list">
+                    <div className='order-send'>
+                        <h1> Resumo do Pedido </h1>
+                        {products.map((products, index) => (
+                            <ul key={index}>{products.name} R$ {products.price},00</ul>
+                        ))}
+
+                        <p><strong> Total: {totalPrice.toLocaleString('pt-BR',
+                            { style: 'currency', currency: 'BRL' })}</strong></p>
+
+
+                        <ButtonRemove text={'X'}
+                            handleClick={(e) => {
+                                e.preventDefault();
+                                removeItem(products);
+                            }}></ButtonRemove>
+
+
+                        <ButtonMenu id='btn-send'
+                            handleClick={onSubmit}
+                            text="Enviar Pedido" />
+                    </div>
+                </div>
         </>
 
     )

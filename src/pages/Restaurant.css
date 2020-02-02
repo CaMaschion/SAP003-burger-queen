@@ -1,8 +1,7 @@
 @media (min-width: 768px), (max-width: 1024px) and (min-width: 1281px){
 
 .container {
-    display: flex;
-    
+    display: flex;    
 }
 
 .button-menu {
@@ -29,20 +28,25 @@
     }
 }
 
-.orderList{
+.order-list{
 
     display: flex;
-    flex-direction: column; 
+    flex-direction: column;
     justify-content: flex-start;
     align-content: center;
-    position: fixed;
-    right: 0px;
-    top: 120px;
-    width: 340px;
-    background-color: rgb(230, 175, 175);
-    height: calc(100% - 48px);
-    
+    width: 20%;
+    border-style: groove;    
+    border-radius: 2%;  
+    padding: 40px;
+    margin-left: 40%;
+    font-size: 10pt;
+    align-items: center;   
+    position: relative;
+    margin-left: 70%;
+    height: 400px;
+        
 }
+
 
 @media (min-width: 768px) and (max-width: 1024px){
 
