@@ -5,6 +5,7 @@ import ButtonRemove from '../components/ButtonRemove/ButtonRemove';
 import MenuList from '../components/Menu/Menu.js';
 import ButtonMenu from '../components/ButtonMenu/ButtonMenu';
 import Nav from '../components/Nav/Nav'
+import ConfirmButton from '../components/ConfirmButton/ConfirmButton.js';
 import "./Restaurant.css";
 
 
@@ -165,7 +166,7 @@ const Restaurant = () => {
 
                                     <button className="addOrder" onClick={addOptionsExtras} type='button'>Adicionar ao pedido</button>
 
-                                    <ButtonMenu
+                                    <ConfirmButton
                                         id={'voltar'}
                                         handleClick={() => setModal({ status: false })}
                                         text='Fechar'
@@ -177,32 +178,33 @@ const Restaurant = () => {
 
                     </div>
                 </div>
-             
+
             </div>
 
             <div className="order-list">
-                    <div className='order-send'>
-                        <h1> Resumo do Pedido </h1>
-                        {products.map((products, index) => (
-                            <ul key={index}>{products.name} R$ {products.price},00</ul>
-                        ))}
 
-                        <p><strong> Total: {totalPrice.toLocaleString('pt-BR',
-                            { style: 'currency', currency: 'BRL' })}</strong></p>
+                <h1> Resumo do Pedido </h1>
+                {products.map((products, index) => (
+                    <ul key={index}>{products.name} R$ {products.price},00</ul>
+                ))}
 
-
-                        <ButtonRemove text={'X'}
-                            handleClick={(e) => {
-                                e.preventDefault();
-                                removeItem(products);
-                            }}></ButtonRemove>
+                <p><strong> Total: {totalPrice.toLocaleString('pt-BR',
+                    { style: 'currency', currency: 'BRL' })}</strong></p>
 
 
-                        <ButtonMenu id='btn-send'
-                            handleClick={onSubmit}
-                            text="Enviar Pedido" />
-                    </div>
-                </div>
+                <ButtonRemove text={'X'}
+                    handleClick={(e) => {
+                        e.preventDefault();
+                        removeItem(products);
+                    }}></ButtonRemove>
+
+                <footer className='footer'>
+                    <ConfirmButton
+                        handleClick={onSubmit}
+                        text="Enviar Pedido" />
+                </footer>
+
+            </div>
         </>
 
     )

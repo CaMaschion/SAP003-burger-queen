@@ -1,0 +1,19 @@
+@media (min-width: 768px), (max-width: 1024px) and (min-width: 1281px){ 
+
+.confirm-button{
+
+    font-size: 15pt;
+    margin: 10px;
+    color: white;
+    height: 50px;
+    border-radius: 10px;
+    padding: 10px;
+    text-align: center;
+    width: 200px;
+    cursor: pointer;
+    background-color: black;
+    border:none;
+    position:relative;
+
+    }
+}

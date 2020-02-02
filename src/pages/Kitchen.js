@@ -1,6 +1,6 @@
 import firebase from '../utils/firebase.js';
 import React, { useState, useEffect } from 'react';
-import ButtonMenu from '../components/ButtonMenu/ButtonMenu.js';
+import ConfirmButton from '../components/ConfirmButton/ConfirmButton.js';
 import OrderKitchen from '../components/Order/OrderKitchen';
 import Nav from '../components/Nav/Nav';
 import './Kitchen.css';
@@ -51,7 +51,7 @@ const Kitchen = () => {
                                 products={doc.products}
                             />
 
-                            <ButtonMenu className={'btn-cozinha'} text={'Pedido Pronto'} handleClick={() => updateStatus(doc)} />
+                            <ConfirmButton className={'btn-cozinha'} text={'Pedido Pronto'} handleClick={() => updateStatus(doc)} />
 
                         </div>
                         : null

@@ -4,6 +4,7 @@ import ButtonMenu from '../components/ButtonMenu/ButtonMenu.js';
 import OrderKitchen from '../components/Order/OrderKitchen.js';
 import Nav from '../components/Nav/Nav';
 import './Delivery.css';
+import ConfirmButton from '../components/ConfirmButton/ConfirmButton.js';
 
 
 const Delivery = () => {
@@ -51,7 +52,7 @@ const Delivery = () => {
                                 products={doc.products}
 
                             />
-                            <ButtonMenu className={'btn-cozinha'} text={'Pedido Entregue'} handleClick={() => updateStatus(doc)} />
+                            <ConfirmButton className={'btn-cozinha'} text={'Pedido Entregue'} handleClick={() => updateStatus(doc)} />
 
 
                         </div>
