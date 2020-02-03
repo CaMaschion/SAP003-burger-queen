@@ -4,7 +4,7 @@ import './OrderKitchen.css';
 const OrderKitchen = (props) => (
         <div className='card'>   
             
-            <h3>Nome: {props.name}</h3>
+            <h3>Nome: {props.client}</h3>
             <p>Mesa: {props.table} </p>
             <section>Itens: 
                 {props.products.map((item, index) =>

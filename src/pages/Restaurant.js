@@ -18,8 +18,8 @@ const Restaurant = () => {
     const [products, setProducts] = useState([])
     const [total, setTotal] = useState('')
     const [modal, setModal] = useState({ status: false })
-    const [options, setOptions] = useState(" ")
-    const [extras, setExtras] = useState("")
+    const [options, setOptions] = useState('')
+    const [extras, setExtras] = useState('')
 
 
     function onSubmit(e) {
@@ -32,7 +32,7 @@ const Restaurant = () => {
                 client,
                 table,
                 products,
-                total,
+                total:totalPrice,
                 status: "Em Andamento",
 
             })
@@ -200,11 +200,11 @@ const Restaurant = () => {
                 <p><strong> Total: {totalPrice.toLocaleString('pt-BR',
                     { style: 'currency', currency: 'BRL' })}</strong></p>
 
-                <footer className='footer'>
+                <div>
                     <ConfirmButton
                         handleClick={onSubmit}
                         text="Enviar Pedido" />
-                </footer>
+                </div>
             </div>
         </>
     )
