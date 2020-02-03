@@ -1,0 +1,67 @@
+@media (min-width: 768px), (max-width: 1024px) and (min-width: 1281px){
+
+.container {
+    display: flex;    
+}
+
+.button-menu {
+    margin: 0%;
+    margin-top: 0%;
+    margin-left: 0%;
+    padding: 0%;
+    box-sizing: border-box;
+    margin-top: 20%;
+    margin-left: -20%;    
+}
+
+.addOrder {
+    background-color: #FF3127;
+    color: white;
+    font-size: 15pt;
+    cursor: pointer;
+    padding: 10px;
+    margin-top: 15px;
+    margin-bottom: 30px;
+    border: none;
+    border-radius: 10px;
+    
+    }
+}
+
+.order-list{
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-content: center;
+    width: 45%;
+    border-style: groove;
+    border-color: black;
+    border-radius: 2%;
+    padding: 40px;
+    margin-left: auto;
+    margin-right: auto;
+    align-items: center;
+   
+}
+
+.list {
+    display: flex;
+    justify-content: center;
+}
+
+
+@media (min-width: 768px) and (max-width: 1024px){
+
+    .button-menu {
+
+        margin: 0%;
+        margin-top: 0%;
+        margin-left: 0%;
+        padding: 0%;
+        box-sizing: border-box;
+        margin-top: 30%;
+        margin-left: -20%;
+    }
+
+}

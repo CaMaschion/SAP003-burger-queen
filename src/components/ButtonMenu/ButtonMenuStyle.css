@@ -1,0 +1,29 @@
+@media (min-width: 768px), (max-width: 1024px) and (min-width: 1281px){
+
+.buttonMenu {
+
+display: inline-block;
+height: 3em;
+width: 7em;
+padding: 10px;
+margin: 1%;
+border-radius: 10px;
+background:black;
+color: white;
+font-size: 20pt;
+cursor: pointer;
+border: none;
+margin-left: 5%;
+
+    }
+}
+
+.buttonMenu:hover{
+    background: rgb(241, 67, 67);
+    color: rgb(255, 222, 89);
+    
+}
+
+.button-size{
+    max-width: 50%;
+}

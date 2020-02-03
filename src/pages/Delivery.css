@@ -1,0 +1,9 @@
+@media (min-width: 768px), (max-width: 1024px) and (min-width: 1281px){
+
+.delivery{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    }
+}

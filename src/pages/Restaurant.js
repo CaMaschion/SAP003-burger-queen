@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import firebase from '../utils/firebase.js';
 import Input from '../components/Input/Input';
-import Button from '../components/Button/';
 import ButtonRemove from '../components/ButtonRemove/ButtonRemove';
 import MenuList from '../components/Menu/Menu.js';
-import Nav from '../components/Nav/Nav';
-import { GlobalStyle } from '../Styles/styles';
+import ButtonMenu from '../components/ButtonMenu/ButtonMenu';
+import Nav from '../components/Nav/Nav'
+import ConfirmButton from '../components/ConfirmButton/ConfirmButton.js';
+import "./Restaurant.css";
 
 
 const Restaurant = () => {
@@ -17,9 +18,9 @@ const Restaurant = () => {
     const [products, setProducts] = useState([])
     const [total, setTotal] = useState('')
     const [modal, setModal] = useState({ status: false })
-    const [options, setOptions] = useState(" ")
-    const [extras, setExtras] = useState("")
-   // const [orders, setOrders] = useState([]);
+    const [options, setOptions] = useState('')
+    const [extras, setExtras] = useState('')
+
 
     function onSubmit(e) {
         e.preventDefault()
@@ -31,7 +32,8 @@ const Restaurant = () => {
                 client,
                 table,
                 products,
-                totalPrice: total,
+                total:totalPrice,
+                status: "Em Andamento",
 
             })
             .then(() => {
@@ -90,127 +92,121 @@ const Restaurant = () => {
         setModal({ status: false })
     }
 
+
     const totalPrice = products.reduce((accum, products) => accum + products.price, 0)
 
     return (
-        <div className="App">
-            <GlobalStyle />
+        <>
+            <div>
+                <Nav
+                    alt={'Burger Queen'}
+                />
 
-            <Nav text={'Burger Queen'} />
+                <div className="container">
 
-            <div className="container"
-                style={{
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    marginLeft: '50px',
-                    marginRight: '100px'
-                }}>
+                    <div className="formContainer">
+                        <form onSubmit={onSubmit}>
 
-                <div>
-                    <form onSubmit={onSubmit}>
+                            <h4>Dados do cliente</h4>
 
-                        <h4>Dados do cliente</h4>
-                        <Input title="Nome: "
-                            type="text" val={client}
-                            handleChange={e => setClient(e.currentTarget.value)} />
-                        <Input title="Número da mesa: "
-                            type="number" val={table}
-                            handleChange={e => setTable(e.currentTarget.value)} />
+                            <Input title="Nome: "
+                                type="text" val={client}
+                                handleChange={e => setClient(e.currentTarget.value)} />
+                            <Input title="Número da mesa: "
+                                type="number" val={table}
+                                handleChange={e => setTable(e.currentTarget.value)} />
 
-                    </form>
-                </div>
+                        </form>
+                    </div>
 
-                <div>
+                    <section className='button-menu'>
 
-                    <section className='containerMenu' style={{ textAlign: 'center' }}>
-
-                        <Button text={'Café da Manhã'}
+                        <ButtonMenu text={'Café da Manhã'}
                             handleClick={() => showFilteredMenu('breakfast')} />
-                        <Button text={'Lanches'}
+                        <ButtonMenu text={'Lanches'}
                             handleClick={() => showFilteredMenu('lunch')} />
 
                     </section>
 
-                    <div>
+                    <div className="">
 
                         <MenuList menuItens={filterMenu}
                             handleClick={verifyOptions} id={'breakfast'} />
 
+                        <section>
+
+                            {modal.status ? (
+                                <div>
+
+                                    <h3>Extras</h3>
+
+                                    {modal.item.extra.map((elem => (
+                                        <div key={modal}>
+                                            <input
+                                                onChange={() => setExtras(elem)}
+                                                type="radio"
+                                                name="extras"
+                                                value={elem} />
+                                            <label>{elem}</label>
+                                        </div>
+                                    )))}
+
+                                    <h3>Opções de Hambúrguer</h3>
+
+                                    {modal.item.options.map((elem => (
+                                        <div key={modal}>
+                                            <input
+                                                onChange={() => setOptions(elem)}
+                                                type="radio"
+                                                name="options"
+                                                value={elem} />
+                                            <label>{elem}</label>
+                                        </div>
+                                    )))}
+
+                                    <button className="addOrder" onClick={addOptionsExtras} type='button'>Adicionar ao pedido</button>
+
+                                    <ConfirmButton
+                                        id={'voltar'}
+                                        handleClick={() => setModal({ status: false })}
+                                        text='Fechar'
+                                    />
+                                </div>
+
+                            ) : false}
+                        </section>
+
                     </div>
-                    <section>
-                        {modal.status ? (
-                            <div>
-                                <h3>Extras</h3>
-                                {modal.item.extra.map((elem => (
-                                    <div key={modal}>
-                                        <input
-                                            onChange={() => setExtras(elem)}
-                                            type="radio"
-                                            name="extras"
-                                            value={elem} />
-                                        <label>{elem}</label>
-                                    </div>
-                                )))}
-                                <h3>Opções de Hambúrguer</h3>
-                                {modal.item.options.map((elem => (
-                                    <div  key={modal}>
-                                        <input
-                                            onChange={() => setOptions(elem)}
-                                            type="radio"
-                                            name="options"
-                                            vaulue={elem} />
-                                        <label>{elem}</label>
-                                    </div>
-                                )))}
-
-                                <button onClick={addOptionsExtras} type='button'
-                                    style={{
-
-                                        backgroundColor: '#FF3127',
-                                        color: 'white',
-                                        fontSize: '15pt',
-                                        cursor: 'pointer',
-                                        padding: '10px',
-                                        marginTop: '15px',
-                                        marginBottom: '30px',
-                                        border: 'none',
-                                        borderRadius: '10px'
-
-                                    }}>Adicionar ao pedido</button>
-
-                                <Button
-                                    id={'voltar'}
-                                    handleClick={() => setModal({ status: false })}
-                                    text='Voltar'
-                                />
-                            </div>
-
-                        ) : false}
-                    </section>
                 </div>
-                <aside>
-                    <div>
-                        <ul>
-                            <h1>Resumo do Pedido</h1>
-                            {products.map((products, index) => (
-                                <ul key={index}>{products.name} R$ {products.price},00
 
-                            <ButtonRemove text={'Remover'} handleClick={(e) => {
-                                        e.preventDefault();
-                                        removeItem(products);
-                                    }} /></ul>
-                            ))}
-                            <p><strong >Total: {totalPrice.toLocaleString('pt-BR',
-                                { style: 'currency', currency: 'BRL' })}</strong></p>
-
-                            <Button id='btn-send'
-                                handleClick={onSubmit}
-                                text="Enviar Pedido" />
-                        </ul>
-                    </div>
-                </aside>
             </div>
-        </div>
+
+            <div className="order-list">
+
+                <h1> Resumo do Pedido </h1>
+
+                {products.map((products, index) => (
+                    <li className='list' key={index}>{products.name} R$ {products.price},00
+                        <ButtonRemove
+                            text={'X'}
+                            handleClick={(e) => {
+                                e.preventDefault();
+                                removeItem(products);
+                            }}
+                        ></ButtonRemove>
+                    </li>
+                ))}
+
+                <p><strong> Total: {totalPrice.toLocaleString('pt-BR',
+                    { style: 'currency', currency: 'BRL' })}</strong></p>
+
+                <div>
+                    <ConfirmButton
+                        handleClick={onSubmit}
+                        text="Enviar Pedido" />
+                </div>
+            </div>
+        </>
     )
 }
 

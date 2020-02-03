@@ -1,29 +1,18 @@
-import React from 'react'
+import React from 'react';
+import './ButtonRemoveStyle.css';
 
 const ButtonRemove = (props) => {
     return (
-        <div>
-
+        <>
             <button
+                className="buttonRemove"
                 onClick={props.handleClick}
+                onChange={props.handleChange}
                 type='button'
-                style={{
-                    backgroundColor: 'red',
-                    color: 'white',
-                    fontSize: '15pt',
-                    cursor: 'pointer',
-                    width: '30%',
-                    padding: '15px',
-                    marginTop: '40px',
-                    textAlign: 'center',
-                    justifyContent: 'center',
-                    border: 'none',
-                    borderRadius: '10px'
-                }}
-
-                className={props.button}>{props.text}</button>
-
-        </div>
+                text={props.button}>
+                {props.text}</button>
+                
+        </>
     )
 }
 export default ButtonRemove

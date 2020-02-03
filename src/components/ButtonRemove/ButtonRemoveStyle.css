@@ -1,0 +1,15 @@
+@media (min-width: 768px), (max-width: 1024px) and (min-width: 1281px){
+
+.buttonRemove{
+    background-color:red;
+    color: white;
+    font-size: 15pt;
+    cursor: pointer;
+    width: 10%;
+    padding: 10px;    
+    text-align: center;
+    border: none;
+    border-radius: 10px;
+    
+    }
+}

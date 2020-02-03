@@ -1,0 +1,56 @@
+@media (min-width: 768px), (max-width: 1024px) and (min-width: 1281px){
+
+
+    .box-card{
+        max-width: 100%;
+       
+    }
+
+    .menu-card {
+        max-width:100%;        
+        flex-wrap: wrap;
+        margin-top: 50px;
+        margin-left: 130px;       
+        display: grid;
+        grid-gap: 5px;
+        grid-template-columns: repeat(4, 1fr); 
+        justify-content: flex-end;
+        
+    }
+
+    .allMenu{
+
+        background-color: black;        
+        color: white;
+        width: 150px;
+        height: 150px;
+        font-size: 15pt;        
+        text-align: center;                                  
+        margin: 20px;
+        border: none;  
+        border-radius: 10px;        
+        cursor: pointer;        
+        box-shadow: 0px 5px 10px 0px grey;                              
+             
+    }
+
+    .allMenu:hover{
+        background: rgb(241, 67, 67);
+        color: rgb(255, 222, 89);
+        
+    }
+
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+
+    .menu-card {
+        width: 70%;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        margin-top: 55%;
+        position: fixed;
+        margin-left: -50%;
+    }
+}

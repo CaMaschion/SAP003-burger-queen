@@ -1,12 +1,12 @@
 import firebase from '../utils/firebase.js';
 import React, { useState, useEffect } from 'react';
-import ConfirmButton from '../components/ConfirmButton/ConfirmButton.js';
-import OrderKitchen from '../components/Order/OrderKitchen';
+import OrderKitchen from '../components/Order/OrderKitchen.js';
 import Nav from '../components/Nav/Nav';
-import './Kitchen.css';
+import './Delivery.css';
+import ConfirmButton from '../components/ConfirmButton/ConfirmButton.js';
 
 
-const Kitchen = () => {
+const Delivery = () => {
 
     const [client, setClient] = useState([])
 
@@ -21,7 +21,8 @@ const Kitchen = () => {
                         ...doc.data()
                     })
                 })
-                setClient(order)                
+                setClient(order)
+
             })
     }, [])
 
@@ -30,30 +31,32 @@ const Kitchen = () => {
 
         firebase.firestore()
             .collection('orders').doc(doc.id).update({
-                status: 'Pronto',
-            })
+                status: 'Entregue',
 
+            })
         setClient(client.filter(item => item.id !== doc.id))
     };
     return (
 
-        <>    
-            <Nav />       
-            <div className={'cozinha-tudo'}>
+        <>
+           <Nav />
+            <div className={'all'}>
                 {client.map((doc, index) =>
-                    doc.status === 'Em Andamento' ?
-                        <div key={index} className={'cozinha'}>
+                    doc.status === 'Pronto' ?
+                        <div key={index} className={'delivery'}>
                             <OrderKitchen
                                 client={doc.client}
                                 table={doc.table}
                                 total={doc.total}
                                 products={doc.products}
-                            />
 
-                            <ConfirmButton className={'btn-cozinha'} text={'Pedido Pronto'} handleClick={() => updateStatus(doc)} />
+                            />
+                            <ConfirmButton className={'btn-cozinha'} text={'Pedido Entregue'} handleClick={() => updateStatus(doc)} />
+
 
                         </div>
                         : null
+
                 )}
             </div>
         </>
@@ -61,4 +64,4 @@ const Kitchen = () => {
 
 }
 
-export default Kitchen;
+export default Delivery;
